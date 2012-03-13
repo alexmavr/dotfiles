@@ -8,6 +8,7 @@ URxvt.urlLauncher : chromium
 URxvt.matcher.button : 1
 
 ## transparency
+URxvt*transparency: on
 URxvt*depth: 32
 
 ## font
@@ -47,8 +48,8 @@ URxvt.color5 : #AA00AA
 URxvt.color13 : #FF55FF
 
 ## cyan
-URxvt.color6 : #00AAAAA
-URxvt.color14 : #55FFFFF
+URxvt.color6 : #00AAAA
+URxvt.color14 : #55FFFF
 
 ## white
 URxvt.color7 : #AAAAAA
