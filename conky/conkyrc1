@@ -1,0 +1,75 @@
+background yes
+
+# Use Xft?
+use_xft yes
+xftfont Terminus:size=9
+xftalpha 0.4
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 2
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+own_window yes
+
+# Create own window instead of using desktop (required in nautilus)
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+draw_shades no 
+draw_outline no
+draw_borders no
+draw_graph_borders no
+alignment top_left
+#maximum_width 310
+max_port_monitor_connections 64
+max_specials 512
+max_user_text 16384
+#minimum_size 310
+gap_x 5
+gap_y 20
+net_avg_samples 2
+out_to_console no
+stippled_borders 2
+uppercase no
+use_spacer yes
+
+color0  CCCCCC
+color1  3465a4 
+color2  D17B30 
+color3  93d44f
+color4  499141
+TEXT
+${color4}Connections ${hr 2}
+${offset 5}${color0}ALL: ${color3}${tcp_portmon 1 65535 count}
+ ${color1}Inbound: ${color2}${tcp_portmon 1 32767 count} ${alignr} ${color0}Local Port${color0}
+ ${color0} ${tcp_portmon 1 32767 rhost 0} ${alignr}${color3} ${tcp_portmon 1 32767 lservice 0}
+ ${color0} ${tcp_portmon 1 32767 rhost 1} ${alignr}${color3} ${tcp_portmon 1 32767 lservice 1}
+ ${color0} ${tcp_portmon 1 32767 rhost 2} ${alignr}${color3} ${tcp_portmon 1 32767 lservice 2}
+ ${color0} ${tcp_portmon 1 32767 rhost 3} ${alignr}${color3} ${tcp_portmon 1 32767 lservice 3}
+ ${color0} ${tcp_portmon 1 32767 rhost 4} ${alignr}${color3} ${tcp_portmon 1 32767 lservice 4}
+ ${color1}Outbound: ${color2}${tcp_portmon 32768 61000 count}${alignr} ${color0}Remote Port${color0}
+ ${color0} ${tcp_portmon 32768 61000 rhost 0} ${alignr}${color3} ${tcp_portmon 32768 61000 rservice 0}
+ ${color0} ${tcp_portmon 32768 61000 rhost 1} ${alignr}${color3} ${tcp_portmon 32768 61000 rservice 1}
+ ${color0} ${tcp_portmon 32768 61000 rhost 2} ${alignr}${color3} ${tcp_portmon 32768 61000 rservice 2}
+ ${color0} ${tcp_portmon 32768 61000 rhost 3} ${alignr}${color3} ${tcp_portmon 32768 61000 rservice 3}
+ ${color0} ${tcp_portmon 32768 61000 rhost 4} ${alignr}${color3} ${tcp_portmon 32768 61000 rservice 4}
+ 
+
+${color4}Notifications ${hr 2}
+${color1}Arch Linux Updates 
+${color0}${texeci 10000 python2 /home/afein/Dropbox/system/updates.py}
+
+${color1}Dropbox Status
+ ${color0}${texeci 10 dropbox status &}
+
+${color1}Mail Inbox
+ ${color0}${texeci 600 python2 /home/afein/Dropbox/system/notify.py}
+
+${color4}Logs ${hr 2}
+${color1}/var/log/auth.log 
+ ${color0}${texeci 10 tail -n 5 /var/log/auth.log}
