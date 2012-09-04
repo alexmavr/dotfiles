@@ -90,7 +90,6 @@ ${color1}Top Processes:
 
 ${color1}File systems: 
  ${color3}/          ${color0}${alignr}${fs_used /}/${fs_size /}   ${color }${fs_bar 5,120 /}
- ${color3}/boot          ${color0}${alignr}${fs_used /boot}/${fs_size /boot}   ${color }${fs_bar 5,120 /boot}
  ${color3}/home      ${color0}${alignr}${fs_used /home}/${fs_size /home}   ${color }${fs_bar 5,120 /home}
  ${color3}/tmp      ${color0}${alignr}${fs_used /tmp}/${fs_size /tmp}   ${color }${fs_bar 5,120 /tmp}
 
@@ -101,7 +100,7 @@ ${color4}Network ${hr 2}
   ${downspeedgraph eth0 25,100 000000 55FF55} ${alignr}${upspeedgraph eth0 25,100 000000 0077FF}
   ${color0}Total:  ${color1}${totaldown eth0}${color0} ${alignr}Total:  ${color2}${totalup eth0}${color0}
   Ethernet IP: $alignr ${color1}${addr eth0}${color0}
-  External IP: ${alignr}${color1}${execi   3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}${color0}
+  External IP: ${alignr}${color1}${texeci   3600 wget -q -O - checkip.dyndns.org | sed -e 's/[^[:digit:]\|.]//g'}${color0}
   ${else} No Ethernet Connection${endif}
  ${color1}WiFi:${color }${if_up wlan0}${color }${color }                 ${alignr}Rate: ${color1}${wireless_bitrate wlan0}${color }
   Link quality: ${color1}${wireless_link_qual_perc wlan0}${color }% ${alignr}${wireless_link_bar 4,120 wlan0}

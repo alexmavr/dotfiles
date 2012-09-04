@@ -1,18 +1,19 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=8:antialias=true"
-	,	bgColor = "black"
-	,	fgColor = "grey"
-	,	position = Top
-	,	lowerOnStart = True
-	,	sepChar = "%"
-	,	alignSep = "}{"
-	,	commands = 
-		[	Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
-		,	Run Memory ["-t","Memory: <usedratio>%"] 10
-		,	Run Swap [] 10
-		,	Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-		,	Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
-		,	Run Date "%a %b %_d %Y " "date" 10
-		,	Run StdinReader
-		]
-	,	template = "%StdinReader% }{ %cpu%  %memory%  %swap%  |  %wlan0% - %eth0%  |  <fc=#ee9a00>%date%</fc> "
-	}
+Config { font = "xft:Terminus:size=9:antialias=True"
+	
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , commands = [ Run StdinReader 
+		    , Run Weather "LGAV" ["-t","Athens Temp: <tempC>C","-L","18","-H","35","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                    , Run Cpu ["-L","1","-H","50","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%_d %b   %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %wlan0% - %eth0%    |    %cpu%    |    %memory% * %swap%                               %LGAV%  |  <fc=#ee9a00>%date%</fc>"
+       }

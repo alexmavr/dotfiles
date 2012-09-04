@@ -11,29 +11,27 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
-# urxvtd daemon (for faster terminals)
-	urxvtd -q -f -o
 
-# ze wallpaper
-	nitrogen --restore ~/Wallpapers &
+# Load Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# mouse cursor (instead of X)
-	xsetroot -cursor_name left_ptr
+# Fix mouse pointer
+xsetroot -cursor_name left_ptr &
 
-# unclutter (hides mouse)
-	unclutter &
+# Hide pointer when idle
+unclutter &
 
-# language change with alt-shift
-	setxkbmap -layout "us, el" -option "grp:alt_shift_toggle"
+# Composite window manager
+xcompmgr -c &
 
-# xcompmgr (for transparency)
-	xcompmgr -c -C -o.65 &
+# Wallpaper
+nitrogen --restore &
 
-# conky (script for two instances)
-	/home/afein/Dropbox/conky/start-conky
+# Conky
+/home/afein/Dropbox/conky/start-conky & 
 
-# dropbox daemon
-	dropboxd &
+# Switch Languages
+setxkbmap -option "grp:switch,grp:alt_shift_toggle,grp_led:scroll" -layout "us,gr"  &
 
-# xmonad (xmobar launches from within it for Dynamic Hooks)
-	xmonad
+# Start Xmonad
+exec xmonad
