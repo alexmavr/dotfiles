@@ -5,7 +5,7 @@ Config { font = "xft:Terminus:size=9:antialias=True"
        , position = Top
        , lowerOnStart = True
        , commands = [ Run StdinReader 
-		    , Run Weather "LGAV" ["-t","Athens Temp: <tempC>C","-L","18","-H","35","--normal","green","--high","red","--low","lightblue"] 36000
+		    , Run Weather "LGAV" ["-t","Athens: <tempC>C","-L","18","-H","35","--normal","green","--high","red","--low","lightblue"] 36000
                     , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Cpu ["-L","1","-H","50","--normal","green","--high","red"] 10

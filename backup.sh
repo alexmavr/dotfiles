@@ -2,5 +2,7 @@
 cp ~/.xmonad/xmonad.hs .
 cp ~/.xmobarrc .
 cp ~/.xinitrc .
+cp ~/.zshrc .
 cp ~/.Xresources .
-cp ~/.bashrc .
+cp ~/.vimrc .
+cp ~/.conkyrc .

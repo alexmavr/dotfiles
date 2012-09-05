@@ -1,37 +1,41 @@
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.oh-my-zsh
 
-zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/afein/.zshrc'
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="wedisagree"
 
-# Autocompletion
-autoload -Uz compinit
-compinit
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Prompt Initialization
-autoload -U promptinit
-promptinit
+# Set to this to use case-sensitive completion
+# CASE_SENSITIVE="true"
 
-# Prompt Selection
-prompt walters
+# Comment this out to disable weekly auto-update checks
+# DISABLE_AUTO_UPDATE="true"
 
-# shell history
-HISTFILE=~/.histfile
-HISTSIZE=1500
-SAVEHIST=1500
+# Uncomment following line if you want to disable colors in ls
+# DISABLE_LS_COLORS="true"
 
-# vi mode
-bindkey -v 
+# Uncomment following line if you want to disable autosetting terminal title.
+# DISABLE_AUTO_TITLE="true"
 
-# skype uses another user
-alias skype='xhost +local: && sudo -u skype /usr/bin/skype'
+# Uncomment following line if you want red dots to be displayed while waiting for completion
+# COMPLETION_WAITING_DOTS="true"
 
-# neverwinter nights 2
-alias nwn2='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Atari/Neverwinter\ Nights\ 2/NWN2Launcher.exe'
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git django vi-mode virtualenvwrapper python pip archlinux github)
 
-# ssh tunnel
-alias sshtunnel="ssh -ND 4711 -v afein@afein.dyndns.org"
+source $ZSH/oh-my-zsh.sh
 
-function secure_chromium {
-    port=4711
-    chromium --proxy-server="socks://localhost:$port" &
-    exit
-}
+# Customize to your needs...
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+
+# Custom aliases
+alias ls='ls --color=auto'
+alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'

@@ -28,7 +28,8 @@ xcompmgr -c &
 nitrogen --restore &
 
 # Conky
-/home/afein/Dropbox/conky/start-conky & 
+#/home/afein/Dropbox/conky/start-conky & 
+conky &
 
 # Switch Languages
 setxkbmap -option "grp:switch,grp:alt_shift_toggle,grp_led:scroll" -layout "us,gr"  &
