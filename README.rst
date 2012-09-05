@@ -1,10 +1,14 @@
 ========================
-Just my config files for:
+My Config Files 
 ========================
-xmonad
-xmobar
-zsh
-vim
-conky
-Xinit
-Xresources (urxvt settings)
+Feel free to try them out
+------------------------
+
+-Xmonad
+-Xmobar
+-Zsh
+-Vim
+-Conky
+-Xinit
+-Xresources (for urxvt settings)
+
