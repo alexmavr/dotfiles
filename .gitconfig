@@ -1,0 +1,11 @@
+[user]
+	email = nalfemp@gmail.com
+	name = Alex Mavrogiannis
+[push]
+	default = matching
+[alias]                                                       
+    tree = log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %Cgreen%s %Cblue(%cr)%Creset' --all --abbrev-commit --date=relative       
+[color]                                                                    
+    ui = true                                                             
+[format]                                                                 
+    pretty = full   
