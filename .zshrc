@@ -6,10 +6,6 @@ ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each # time that oh-my-zsh is loaded.
 ZSH_THEME="gentoo"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -39,6 +35,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bi
 alias ls='ls --color=auto'
 alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
+alias gmt="git commit -am "
 
 function hello() {
     echo -en '\e[0;35m' # Purple
