@@ -1,0 +1,53 @@
+# vim: filetype=muttrc
+
+color hdrdefault   brightwhite     black
+color signature    brightred       black
+color indicator    black           white
+color error        brightred       black
+color status       green       black       # The 2 status bars are yellow *on green.*
+color tree         brightmagenta   black       # The thread-tree for threaded mailboxes.
+color tilde        brightmagenta   black
+color message      brightcyan     black       # Informational messages, *not mail.*
+color normal	   white			black       # Plain text ("white" is set at silver,
+                                               # "brightwhite" is set at white).
+color attachment   cyan            black       # 'Cyan' is set at purple.
+color search       brightwhite     red         # Highlights the search patterns in the pager.
+color header       yellow          black   ^(From|Subject):
+color header       cyan            black   ^(X-*|User-Agent*)
+color body         brightyellow    black   "(ftp|http)://[^ >]+"
+color body         brightgreen      black   \\*.*\\*
+color body         cyan            black   \\_.*\\_
+color body         magenta         black   \\/.*\\/
+color body         cyan            black   [-a-z_0-9.]+@[-a-z_0-9.]+
+color markers      red             black       # This is the '+' that indicates wrapped pager lines.
+color underline    white           red
+
+#color body   magenta  color0  "(mailto:)?[^[ =^:#,+\t\n<>()@\"]+@[^] =:/^#,\t\n>)@\"\\*]+"
+
+#color index   brightgreen     black    (~[EMAIL PROTECTED]~[EMAIL PROTECTED])
+#color index   brightgreen     black    (~[EMAIL PROTECTED]~[EMAIL PROTECTED])
+color index        white    black     ~z>15k   # Subject headers of all mails larger
+                                                # than 15k are brightwhite in
+                                                # the index.
+
+# Different colors for 8 levels of quoting:
+
+color quoted       brightmagenta          color0
+color quoted1           color1          color0
+color quoted2     brightyellow          color0
+color quoted3       brightgreen          color0
+color quoted4       brightcyan          color0
+color quoted5             cyan          color0
+color quoted6      brightwhite          color0
+color quoted7             green          color0
+
+# Setting by number can resolve color-name conflicts between mutt & your term
+# program:
+
+#   0 = black   1 = red   2 = green   3 = yellow   4 = green   5 = magenta
+#   6 = cyan    7 = white (usually lite grey)   8 = brightblack (us. drk grey)
+#   9 = brightred   10 = brightgreen   11 = brightyellow   12 = brightgreen
+#  13 = brightmagenta   14 = brightcyan   15 = brightwhite
+
+mono header underline ^(From|Subject):
+mono quoted bold

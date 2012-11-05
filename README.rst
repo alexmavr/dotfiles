@@ -10,5 +10,6 @@ Feel free to try them out:
 - Vim
 - Conky
 - Xinit
-- Xresources (for urxvt settings)
+- Xresources 
+- Mutt
 

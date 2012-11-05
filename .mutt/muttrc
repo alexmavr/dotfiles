@@ -1,0 +1,67 @@
+
+#set pager_index_lines=20
+# make sure Vim knows mutt is a mail client and that we compose an UTF-8 encoded message
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8'"
+# show spam score (from SpamAssassin only) when reading a message
+# spam "X-Spam-Score: ([0-9\\.]+).*" "SA: %1"
+set pager_format = " %C - %[%H:%M] %.20v, %s%* %?H? [%H] ?"
+
+auto_view text/calendar
+
+##### COPIED FROM ARCHWIKI
+set date_format="%d-%m %H:%M"
+set index_format="%4C %Z [%D] %-30.30F %s"
+
+set alias_file = "~/.mutt/aliases"
+set sort_alias = alias
+set reverse_alias = yes
+source $alias_file
+##### COPIED FROM ARCHWIKI
+
+
+set timeout=15
+set mail_check=15
+set sleep_time=0
+
+#set sort=reverse-threads
+set sort=reverse-date
+set sort_aux=threads
+unset edit_headers
+#set header=yes
+
+set mailcap_path=~/.mailcap
+auto_view text/html
+
+set signature="~/bin/updatesig.sh|"
+
+set mime_forward=yes
+set mime_forward_rest=yes
+
+set imap_keepalive=60
+
+
+
+
+
+
+
+bind index "^" imap-fetch-mail
+# Use abook with Mutt
+#set query_command="abook --mutt-query '%s'"
+#macro generic,index,pager,compose \ca "<shell-escape>abook<return>" "launch abook"
+
+#macro index a     "|abook --add-email-quiet<return>" 'add sender to abook'
+#macro pager a     "|abook --add-email-quiet<return>" 'add sender to abook'
+
+
+ignore *
+unignore From: To: Cc: Subject: Date:
+
+
+## Shortcuts
+
+
+source ~/.mutt/mutt-lists
+source ~/.mutt/mutt-personal
+source ~/.mutt/mutt-colors
+source ~/.mutt/crypto

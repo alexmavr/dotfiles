@@ -37,6 +37,7 @@ import XMonad.Util.NamedScratchpad
 import Data.Ratio ((%))
 import XMonad.Util.Scratchpad 
 import XMonad.Hooks.SetWMName
+import Data.List
 
 pythonDzenPP :: PP
 pythonDzenPP = defaultPP {

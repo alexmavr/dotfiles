@@ -31,6 +31,9 @@ nitrogen --restore &
 #/home/afein/Dropbox/conky/start-conky & 
 conky &
 
+# Dropbox
+dropboxd &
+
 # Switch Languages
 setxkbmap -option "grp:switch,grp:alt_shift_toggle,grp_led:scroll" -layout "us,gr"  &
 

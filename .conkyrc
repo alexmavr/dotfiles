@@ -6,6 +6,8 @@ xftfont Terminus:size=9
 xftalpha 0.4
 text_buffer_size 2048
 
+maximum_width 400
+
 # Update interval in seconds
 update_interval 2
 # This is the number of times Conky will update before quitting.

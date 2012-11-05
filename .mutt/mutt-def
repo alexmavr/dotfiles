@@ -1,0 +1,57 @@
+
+# vim: filetype=muttrc
+color normal	green black
+color attachment brightyellow black
+color hdrdefault cyan black
+
+color indicator black green
+
+color markers	brightred black
+color signature cyan black
+color status	brightwhite black
+color tilde	blue black
+color tree	red black
+
+color index	magenta black ~T
+color index	yellow black ~O
+color index	yellow black ~N
+color index	red black ~D
+color index	cyan black ~G
+color index	cyan black ~g
+color index	cyan black ~k
+color index	brightblue black ~v
+
+
+
+
+color quoted       brightmagenta          color0
+color quoted1           color1          color0
+color quoted2     brightyellow          color0
+color quoted3       brightgreen          color0
+color quoted4       brightcyan          color0
+color quoted5             cyan          color0
+color quoted6      brightwhite          color0
+color quoted7             green          color0
+
+# Setting by number can resolve color-name conflicts between mutt & your term
+# program:
+
+#   0 = black   1 = red   2 = green   3 = yellow   4 = green   5 = magenta
+#   6 = cyan    7 = white (usually lite grey)   8 = brightblack (us. drk grey)
+#   9 = brightred   10 = brightgreen   11 = brightyellow   12 = brightgreen
+#  13 = brightmagenta   14 = brightcyan   15 = brightwhite
+
+mono header underline ^(From|Subject):
+mono quoted bold
+
+color header	brightgreen black ^From:
+color header	brightcyan black ^To:
+color header	brightcyan black ^Reply-To:
+color header	brightcyan black ^Cc:
+color header	brightblue black ^Subject:
+
+color body	brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+# identifies email addresses
+
+color body	brightblue black (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+# identifies URLs
