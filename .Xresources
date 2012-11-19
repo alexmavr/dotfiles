@@ -44,10 +44,10 @@ URxvt.colorBD:	#d7d7d7
 URxvt.colorUL:	#87afd7
 
 ! Transparency (done by xcompmgr now)
-!URxvt.depth: 32
-!URxvt.background: rgba:1111/1111/1111/dddd
-!URxvt.transparent: true
-!URxvt.shading: 17
+URxvt.depth: 32
+URxvt.background: rgba:1111/1111/1111/dddd
+URxvt.transparent: true
+URxvt.shading: 17
 
 ! No Scrollbar
 URxvt.scrollBar: false
