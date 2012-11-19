@@ -3,27 +3,10 @@ ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each # time that oh-my-zsh is loaded.
 ZSH_THEME="gentoo"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git django vi-mode python pip archlinux github)
 
 source $ZSH/oh-my-zsh.sh
@@ -31,19 +14,21 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 
+#==================== Awesome Functions =========================#
+
+# Pretty-print the hostname
 function hello() {
     echo -en '\e[0;35m' # Purple
 	figlet $(hostname) 
     echo -en '\e[0m' 
 }
 
+# Set initial window transparency 
 function init_window() {
     transset-df 0.9 --id $(xdotool getwindowfocus) > /dev/null
 }
 
-eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
-
-
+# Extract archives
 function extract () {
 if [[ -f "$1" ]]; then
     case "$1" in
@@ -66,8 +51,9 @@ if [[ -f "$1" ]]; then
 else
   echo "Error: $1 is not a valid file for extraction"
 fi
-}
+} 
 
+# Open images or documents
 function open () {
 if [[ -f "$1" ]]; then
     case "$1" in
@@ -85,7 +71,7 @@ else
 fi
 }
 
-
+# Play media files 
 function play () {
 if [[ -f "$1" ]]; then
     case "$1" in
@@ -98,15 +84,18 @@ else
 fi
 }
 
-hello
+#==================== Init Actions =========================#
+
 init_window
+eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
+hello
 
 #==================== Custom aliases =========================#
 
 alias ls='ls --color=auto'
 alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
-alias gmt="git commit -am "
 alias svim="sudo vim -u /home/afein/.vimrc "
+alias gmt="git commit -am "
 
 
