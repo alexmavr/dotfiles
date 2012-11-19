@@ -1,6 +1,9 @@
 [user]
 	email = nalfemp@gmail.com
 	name = Alex Mavrogiannis
+[core]
+    editor = vim
+    excludes = /home/afein/.gitignore
 [push]
 	default = matching
 [alias]                                                       

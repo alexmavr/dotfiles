@@ -31,18 +31,16 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 
-# Custom aliases
-alias ls='ls --color=auto'
-alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
-alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
-alias gmt="git commit -am "
-
 function hello() {
     echo -en '\e[0;35m' # Purple
 	figlet $(hostname) 
     echo -en '\e[0m' 
 }
-hello
+
+function init_window() {
+    transset-df 0.9 --id $(xdotool getwindowfocus) > /dev/null
+}
+
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 
 
@@ -99,4 +97,16 @@ else
   echo "Error: $1 could not play file"
 fi
 }
+
+hello
+init_window
+
+#==================== Custom aliases =========================#
+
+alias ls='ls --color=auto'
+alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
+alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
+alias gmt="git commit -am "
+alias svim="sudo vim -u /home/afein/.vimrc "
+
 
