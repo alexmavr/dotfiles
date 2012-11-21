@@ -5,6 +5,9 @@ import System.Exit
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 
+import XMonad.Util.Run 
+import System.IO
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -205,11 +208,6 @@ myEventHook = mempty
 ------------------------------------------------------------------------
 -- Status bars and logging
 
--- Perform an arbitrary action on each internal state change or X event.
--- See the 'XMonad.Hooks.DynamicLog' extension for examples.
---
-myLogHook = return ()
-
 ------------------------------------------------------------------------
 -- Startup hook
 
@@ -229,30 +227,32 @@ myStartupHook = return ()
 -- No need to modify this.
 --
 
-main = xmonad =<< xmobar defaults
-        { manageHook = manageDocks <+> manageHook defaultConfig
+main = do 
+xmproc <- spawnPipe "/usr/bin/xmobar /home/afein/.xmobarrc"
+xmonad $ defaultConfig
+        { manageHook = manageDocks <+> myManageHook 
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , logHook = dynamicLogWithPP xmobarPP
+            { ppOutput = hPutStrLn xmproc
+            , ppTitle = xmobarColor "blue" "" . shorten 50
+            , ppLayout = const "" 
+            }
+
+        -- simple stuff
+        , terminal           = myTerminal
+        , focusFollowsMouse  = myFocusFollowsMouse
+        , borderWidth        = myBorderWidth
+        , modMask            = myModMask
+        , workspaces         = myWorkspaces
+        , normalBorderColor  = myNormalBorderColor
+        , focusedBorderColor = myFocusedBorderColor
+
+        -- key bindings
+        , keys               = myKeys
+        , mouseBindings      = myMouseBindings
+
+        -- hooks, layouts
+        , handleEventHook    = myEventHook
+        , startupHook        = myStartupHook
         } 
 
-
-defaults = defaultConfig {
-    -- simple stuff
-    terminal           = myTerminal,
-    focusFollowsMouse  = myFocusFollowsMouse,
-    borderWidth        = myBorderWidth,
-    modMask            = myModMask,
-    workspaces         = myWorkspaces,
-    normalBorderColor  = myNormalBorderColor,
-    focusedBorderColor = myFocusedBorderColor,
-
-    -- key bindings
-    keys               = myKeys,
-    mouseBindings      = myMouseBindings,
-
-    -- hooks, layouts
-    layoutHook         = myLayout,
-    manageHook         = myManageHook,
-    handleEventHook    = myEventHook,
-    logHook            = myLogHook,
-    startupHook        = myStartupHook
-}
