@@ -86,7 +86,7 @@ fi
 
 #==================== Init Actions =========================#
 
-init_window > /dev/null
+init_window > /dev/null 2>&1
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 hello
 
