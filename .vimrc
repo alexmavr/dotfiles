@@ -152,7 +152,7 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 imap <C-J> <C-X><C-O>
 
 " show pending tasks list
-map <F2> :TaskList<CR>
+map <F2> :w<CR>
 
 " removes trailing spaces of python files
 " (and restores cursor position)
@@ -197,9 +197,9 @@ let OmniCpp_MayCompleteScope = 0
 " change this behaviour with the OmniCpp_SelectFirstItem option.
 let OmniCpp_SelectFirstItem = 0
 
-" debugger keyboard shortcuts
-map <F5> :Dbg over<CR>
-map <F6> :Dbg into<CR>
+" keyboard shortcuts
+map <F5> :ConqueTermSplit zsh<CR>
+map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
 map <F8> :Dbg here<CR>
 map <F9> :Dbg break<CR>

@@ -18,14 +18,14 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bi
 
 # Pretty-print the hostname
 function hello() {
-    echo -en '\e[0;35m' # Purple
+    echo -en '\e[0;35m' # Orange-like
 	figlet $(hostname) 
     echo -en '\e[0m' 
 }
 
 # Set initial window transparency 
 function init_window() {
-    transset-df 0.9 --id $(xdotool getwindowfocus) > /dev/null
+    transset-df 0.9 --id $(xdotool getwindowfocus)
 }
 
 # Extract archives
@@ -86,7 +86,7 @@ fi
 
 #==================== Init Actions =========================#
 
-init_window
+init_window > /dev/null
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 hello
 
@@ -97,5 +97,6 @@ alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
 alias svim="sudo vim -u /home/afein/.vimrc "
 alias gmt="git commit -am "
-
-
+alias grst="git reset --hard HEAD"
+alias mix="alsamixer"
+alias s="source ~/.zshrc"
