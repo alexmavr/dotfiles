@@ -62,7 +62,7 @@ if [[ -f "$1" ]]; then
         *.JPG)              feh     "$1" &   ;;
         *.jpg)              feh     "$1" &   ;;
         *.pdf)              zathura     "$1" &> /dev/null &   ;;
-        *.odt | *.doc)      libreoffice "$1" &> /dev/null &   ;;
+        *.odt | *.doc | *.docx) libreoffice "$1" &> /dev/null &   ;;
         *.avi)              mplayer     "$1"    ;;
         *)                  vim "$1"            ;;
     esac
@@ -84,6 +84,22 @@ else
 fi
 }
 
+# Google something
+function google {
+    q=""
+    i=0
+    for var in "$@"
+    do
+        if [ "$i" -eq "0" ]; then
+            q+=$var
+        else
+            q+="+"$var
+        fi
+        i+=1
+    done
+    chromium "http://www.google.com/search?q=$q"
+}
+
 #==================== Init Actions =========================#
 
 init_window > /dev/null 2>&1
@@ -100,3 +116,4 @@ alias gmt="git commit -am "
 alias grst="git reset --hard HEAD"
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
+
