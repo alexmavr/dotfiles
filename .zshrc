@@ -62,7 +62,7 @@ if [[ -f "$1" ]]; then
         *.JPG)              feh     "$1" &   ;;
         *.jpg)              feh     "$1" &   ;;
         *.pdf)              zathura     "$1" &> /dev/null &   ;;
-        *.odt | *.doc | *.docx) libreoffice "$1" &> /dev/null &   ;;
+        *.odt | *.doc | *.docx)  libreoffice "$1" &> /dev/null &   ;;
         *.avi)              mplayer     "$1"    ;;
         *)                  vim "$1"            ;;
     esac
@@ -75,8 +75,8 @@ fi
 function play () {
 if [[ -f "$1" ]]; then
     case "$1" in
-        *.mp3 | *.ogg)          mplayer "$1"   ;;
-        *.pls | *.m3u)          mplayer -playlist "$1"   ;;
+        *.mp3 | *.ogg)      mplayer "$1"   ;;
+        *.pls | *.m3u)      mplayer -playlist "$1"   ;;
         *) echo "Error: failed to open $1" ;;
     esac
 else
