@@ -102,7 +102,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
 
     -- Scratchpad 
-    , ((mod4Mask             ,xK_grave), scratchpadSpawnActionTerminal "urxvt -pe tabbed -T term")
+    , ((mod4Mask             ,xK_grave), scratchpadSpawnActionTerminal "SCRATCH=1 urxvt -pe tabbed -T term")
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -232,6 +232,14 @@ myscratchpadManageHook :: ManageHook
 myscratchpadManageHook = scratchpadManageHook (W.RationalRect 0.00 0.02 1.00 0.30)
 ------------------------------------------------------------------------
 
+------------------------------------------------------------------------
+-- Xmobar
+myxmobarPP = xmobarPP{ 
+    ppUrgent   = xmobarColor "red" ""
+    , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort xmobarPP
+}
+------------------------------------------------------------------------
+
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
 -- use the defaults defined in xmonad/XMonad/Config.hs
@@ -244,7 +252,7 @@ xmproc <- spawnPipe "/usr/bin/xmobar /home/afein/.xmobarrc"
 xmonad $ defaultConfig
         { manageHook = manageDocks <+> myManageHook <+> myscratchpadManageHook 
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , logHook = takeTopFocus >> dynamicLogWithPP xmobarPP
+        , logHook = takeTopFocus >> dynamicLogWithPP myxmobarPP
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "blue" "" . shorten 50
             , ppUrgent = xmobarColor "yellow" "red" . xmobarStrip

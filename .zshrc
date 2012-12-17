@@ -104,7 +104,10 @@ function google {
 
 init_window > /dev/null 2>&1
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
-hello
+
+if [[ -z $SCRATCH ]]; then
+    hello
+fi
 
 #==================== Custom aliases =========================#
 
