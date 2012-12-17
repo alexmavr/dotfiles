@@ -4,7 +4,10 @@ import System.Exit
 
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.SetWMName
+import XMonad.Hooks.ICCCMFocus
 
+import XMonad.Util.Scratchpad 
 import XMonad.Util.Run 
 import System.IO
 
@@ -97,6 +100,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Deincrement the number of windows in the master area
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+
+    -- Scratchpad 
+    , ((mod4Mask             ,xK_grave), scratchpadSpawnActionTerminal "urxvt -pe tabbed -T term")
 
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
@@ -216,8 +222,14 @@ myEventHook = mempty
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = setWMName "LG3D"
 
+-----------------------------------------------------------------------
+-- Scratchpad hook
+--
+
+myscratchpadManageHook :: ManageHook
+myscratchpadManageHook = scratchpadManageHook (W.RationalRect 0.00 0.02 1.00 0.30)
 ------------------------------------------------------------------------
 
 -- A structure containing your configuration settings, overriding
@@ -230,11 +242,12 @@ myStartupHook = return ()
 main = do 
 xmproc <- spawnPipe "/usr/bin/xmobar /home/afein/.xmobarrc"
 xmonad $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook 
+        { manageHook = manageDocks <+> myManageHook <+> myscratchpadManageHook 
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , logHook = dynamicLogWithPP xmobarPP
+        , logHook = takeTopFocus >> dynamicLogWithPP xmobarPP
             { ppOutput = hPutStrLn xmproc
             , ppTitle = xmobarColor "blue" "" . shorten 50
+            , ppUrgent = xmobarColor "yellow" "red" . xmobarStrip
             , ppLayout = const "" 
             }
 
@@ -246,6 +259,7 @@ xmonad $ defaultConfig
         , workspaces         = myWorkspaces
         , normalBorderColor  = myNormalBorderColor
         , focusedBorderColor = myFocusedBorderColor
+
 
         -- key bindings
         , keys               = myKeys

@@ -12,8 +12,7 @@ plugins=(git django vi-mode python pip archlinux github)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
-
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/build/JMF-2.1.1e/bin:/home/afein/build/jdk1.7.0_10/bin:/home/afein/eclipse/eclipse:/home/afein/.gem/ruby/1.9.1/bin
 #==================== Awesome Functions =========================#
 
 # Pretty-print the hostname
@@ -76,6 +75,7 @@ function play () {
 if [[ -f "$1" ]]; then
     case "$1" in
         *.mp3 | *.ogg)      mplayer "$1"   ;;
+        *.avi | *.mp4 | *.mkv)      mplayer "$1"   ;;
         *.pls | *.m3u)      mplayer -playlist "$1"   ;;
         *) echo "Error: failed to open $1" ;;
     esac
@@ -112,8 +112,7 @@ alias ls='ls --color=auto'
 alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
 alias svim="sudo vim -u /home/afein/.vimrc "
-alias gmt="git commit -am "
+alias gmt="git commit -m "
 alias grst="git reset --hard HEAD"
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
-
