@@ -115,6 +115,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    -- Skype
+    , ((modm              , xK_s     ), spawn "xhost +local: && sudo -u skype /usr/bin/skype")
     ]
     ++
 
@@ -226,7 +229,6 @@ myStartupHook = setWMName "LG3D"
 
 -----------------------------------------------------------------------
 -- Scratchpad hook
---
 
 myscratchpadManageHook :: ManageHook
 myscratchpadManageHook = scratchpadManageHook (W.RationalRect 0.00 0.02 1.00 0.30)
@@ -234,6 +236,7 @@ myscratchpadManageHook = scratchpadManageHook (W.RationalRect 0.00 0.02 1.00 0.3
 
 ------------------------------------------------------------------------
 -- Xmobar
+
 myxmobarPP = xmobarPP{ 
     ppUrgent   = xmobarColor "red" ""
     , ppSort = fmap (.scratchpadFilterOutWorkspace) $ ppSort xmobarPP
@@ -267,7 +270,6 @@ xmonad $ defaultConfig
         , workspaces         = myWorkspaces
         , normalBorderColor  = myNormalBorderColor
         , focusedBorderColor = myFocusedBorderColor
-
 
         -- key bindings
         , keys               = myKeys

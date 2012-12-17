@@ -53,7 +53,8 @@ URxvt.shading: 17
 URxvt.scrollBar: false
 
 ! Fonts
-URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=false:hinting=true
+!URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=false:hinting=true
+URxvt.font: xft:Envy Code R:size=10:antialias=false:hinting=true
 URxvt.boldFont: xft:DejaVu Sans Mono:bold:size=10:antialias=false:hinting=true
 
 ! Urls

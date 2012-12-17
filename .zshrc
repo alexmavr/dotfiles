@@ -100,22 +100,36 @@ function google {
     chromium "http://www.google.com/search?q=$q"
 }
 
+
+# Run skype as a restricted user
+function doskype() {
+    xhost +local: && sudo -u skype /usr/bin/skype
+}
+
 #==================== Init Actions =========================#
 
 init_window > /dev/null 2>&1
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 
+# Show hostname if not in scratchpad
 if [[ -z $SCRATCH ]]; then
     hello
 fi
 
+export BROWSER="spacefm"
+
 #==================== Custom aliases =========================#
 
 alias ls='ls --color=auto'
-alias doskype='xhost +local: && sudo -u skype /usr/bin/skype'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
 alias svim="sudo vim -u /home/afein/.vimrc "
-alias gmt="git commit -m "
 alias grst="git reset --hard HEAD"
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
+
+#   Git 
+alias ga="git add"
+alias gpl="git pull"
+alias gps="git push"
+alias gmt="git commit -m "
+alias gamt="git commit -am "
