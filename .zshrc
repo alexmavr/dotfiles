@@ -1,18 +1,16 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
 ZSH_THEME="gentoo"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git django vi-mode python pip archlinux github)
-
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+#=================== Enviromental Variables ==================#
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/build/JMF-2.1.1e/bin:/home/afein/build/jdk1.7.0_10/bin:/home/afein/eclipse/eclipse:/home/afein/.gem/ruby/1.9.1/bin
+export BROWSER="spacefm"
+export TERM="rxvt"
+
 #==================== Awesome Functions =========================#
 
 # Pretty-print the hostname
@@ -106,17 +104,17 @@ function doskype() {
     xhost +local: && sudo -u skype /usr/bin/skype
 }
 
-#==================== Init Actions =========================#
+#==================== Init Actions ===========================#
 
-init_window > /dev/null 2>&1
-eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
+if [ "$(hostname)" = "archtop" ]; then
+    init_window > /dev/null 2>&1
+    eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
+fi
 
 # Show hostname if not in scratchpad
 if [[ -z $SCRATCH ]]; then
     hello
 fi
-
-export BROWSER="spacefm"
 
 #==================== Custom aliases =========================#
 
