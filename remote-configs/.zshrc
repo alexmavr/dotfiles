@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
+export PATH="$PATH"
 export TERM="rxvt"
 
 #==================== Awesome Functions =========================#
