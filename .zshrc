@@ -106,10 +106,8 @@ function doskype() {
 
 #==================== Init Actions ===========================#
 
-if [ "$(hostname)" = "archtop" ]; then
-    init_window > /dev/null 2>&1
-    eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
-fi
+init_window > /dev/null 2>&1
+eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 
 # Show hostname if not in scratchpad
 if [[ -z $SCRATCH ]]; then
@@ -121,7 +119,6 @@ fi
 alias ls='ls --color=auto'
 alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
 alias svim="sudo vim -u /home/afein/.vimrc "
-alias grst="git reset --hard HEAD"
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
 
@@ -130,4 +127,5 @@ alias ga="git add"
 alias gpl="git pull"
 alias gps="git push"
 alias gmt="git commit -m "
+alias grst="git reset --hard HEAD"
 alias gamt="git commit -am "
