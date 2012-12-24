@@ -5,4 +5,4 @@ cp ~/.zshrc ~/.zshrc-b4script
 cd ~
 git clone git://github.com/robbyrussell/oh-my-zsh.git
 ./oh-my-zsh/tools/install.sh
-cp ~/.zshrc-old ~/.zshrc
+cp ~/.zshrc.pre-oh-my-zsh ~/.zshrc
