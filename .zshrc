@@ -8,7 +8,9 @@ source $ZSH/oh-my-zsh.sh
 #=================== Enviromental Variables ==================#
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/build/JMF-2.1.1e/bin:/home/afein/build/jdk1.7.0_10/bin:/home/afein/eclipse/eclipse:/home/afein/.gem/ruby/1.9.1/bin
+
 export BROWSER="spacefm"
+export EDITOR="vim"
 export TERM="rxvt"
 
 #==================== Awesome Functions =========================#
@@ -98,6 +100,14 @@ function google {
     chromium "http://www.google.com/search?q=$q"
 }
 
+# Search for something on twitter (returns json)
+function twitter {
+   num=5 
+   if [ $2 ]; then
+       num=$2
+   fi 
+   curl "http://search.twitter.com/search.json?q=$1&rpp=$num&include_entities=true" | jq "[.results[] | {from_user_name, text}]"
+}
 
 # Run skype as a restricted user
 function doskype() {
