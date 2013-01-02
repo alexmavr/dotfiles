@@ -1,0 +1,14 @@
+[user]
+	email = nalfemp@gmail.com
+	name = Alex Mavrogiannis
+[core]
+    editor = vim
+    excludes = /home/afein/.gitignore
+[push]
+	default = matching
+[alias]                                                       
+    tree = log --graph --pretty=format:'%C(red)%h%Creset -%C(yellow)%d%Creset %Cgreen%s %Cblue(%cr)%Creset' --all --abbrev-commit --date=relative       
+[color]                                                                    
+    ui = true                                                             
+[format]                                                                 
+    pretty = full   

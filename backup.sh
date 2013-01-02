@@ -8,3 +8,4 @@ cp ~/.vimrc .
 cp ~/.conkyrc .
 cp ~/.mutt . -rf
 cp ~/.gitconfig . 
+cp .gitconfig remote-configs/
