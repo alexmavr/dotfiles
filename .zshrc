@@ -114,6 +114,20 @@ function doskype() {
     xhost +local: && sudo -u skype /usr/bin/skype
 }
 
+# activate/create virtualenvs at ~/Envs
+function venv () {
+    if [[ "x$1" == "x" ]]; then
+        echo "Usage: venv <virtualenv folder>"
+    else
+        if [[ -f  "${HOME}/Envs/$1/bin/activate" ]]; then
+            source "${HOME}/Envs/$1/bin/activate"
+        else
+            virtualenv "${HOME}/Envs/$1"
+            source "${HOME}/Envs/$1/bin/activate"
+        fi
+    fi
+}
+
 #==================== Init Actions ===========================#
 
 init_window > /dev/null 2>&1
