@@ -104,10 +104,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Scratchpad 
     , ((mod4Mask             ,xK_grave), scratchpadSpawnActionTerminal "SCRATCH=1 urxvt -pe tabbed -T term")
 
+    -- PrintScreen
+    , ((mod4Mask             ,xK_Print), spawn  "scrot -e 'mv $f ~/Dropbox/Screenshots'")
+    
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
-    -- See also the statusBar function from Hooks.DynamicLog.
-    --
     , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
     -- Quit xmonad
@@ -197,11 +198,22 @@ myLayout = tiled ||| Mirror tiled ||| Full
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = composeAll
-    [ className =? "MPlayer"        --> doFloat
-    , className =? "Gimp"           --> doFloat
+myFloatHook = composeAll
+    [ className =? "MPlayer" --> doFloat
+    , className =? "Chromium" --> moveToWeb
+    , className =? "google-chrome" --> moveToWeb
+    , className =? "Firefox" --> moveToWeb
+    , className =? "uzbl-tabbed" --> moveToWeb
+    , className =? "Gimp" --> doFloat
+    , className =? "Skype" --> moveToIM
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource =? "vlc" --> moveToFull
+    , resource =? "vlc" --> unfloat
+    , manageDocks ] where
+        unfloat = ask >>= doF . W.sink
+        moveToWeb = doF $ W.shift "web"
+        moveToIM = doF $ W.shift "8"
+        moveToFull = doF $ W.shift "0"
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -253,7 +265,7 @@ myxmobarPP = xmobarPP{
 main = do 
 xmproc <- spawnPipe "/usr/bin/xmobar /home/afein/.xmobarrc"
 xmonad $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook <+> myscratchpadManageHook 
+        { manageHook = manageDocks <+> myFloatHook <+> myscratchpadManageHook 
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = takeTopFocus >> dynamicLogWithPP myxmobarPP
             { ppOutput = hPutStrLn xmproc
