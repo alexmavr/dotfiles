@@ -1,4 +1,3 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="gentoo"
@@ -13,7 +12,7 @@ export BROWSER="spacefm"
 export EDITOR="vim"
 export TERM="rxvt"
 
-#==================== Awesome Functions =========================#
+#==================== Functions =========================#
 
 # Pretty-print the hostname
 function hello() {
@@ -145,6 +144,7 @@ alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass 
 alias svim="sudo vim -u /home/afein/.vimrc "
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
+alias testcam="guvcview"
 
 #   Git 
 alias ga="git add"
@@ -153,3 +153,6 @@ alias gps="git push"
 alias gmt="git commit -m "
 alias grst="git reset --hard HEAD"
 alias gamt="git commit -am "
+alias gf="git fetch --all"
+alias gm="git merge"
+

@@ -119,6 +119,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Skype
     , ((modm              , xK_s     ), spawn "xhost +local: && sudo -u skype /usr/bin/skype")
+
+    -- Chromium
+    , ((modm              , xK_c     ), spawn "chromium")
     ]
     ++
 
