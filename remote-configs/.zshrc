@@ -51,6 +51,7 @@ hello
 
 #==================== Custom aliases =========================#
 
+alias v="vim"
 alias ls='ls --color=auto'
 alias svim="sudo vim -u /home/afein/.vimrc "
 alias mix="alsamixer"
@@ -63,3 +64,5 @@ alias gps="git push"
 alias gmt="git commit -m "
 alias grst="git reset --hard HEAD"
 alias gamt="git commit -am "
+alias gf="git fetch --all"
+alias gm="git merge"

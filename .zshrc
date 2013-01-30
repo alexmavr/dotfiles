@@ -1,16 +1,16 @@
 ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="gentoo"
+ZSH_THEME='gentoo'
 plugins=(git django vi-mode python pip archlinux github)
 source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/build/JMF-2.1.1e/bin:/home/afein/build/jdk1.7.0_10/bin:/home/afein/eclipse/eclipse:/home/afein/.gem/ruby/1.9.1/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
 
-export BROWSER="spacefm"
-export EDITOR="vim"
-export TERM="rxvt"
+export BROWSER='spacefm'
+export EDITOR='vim'
+export TERM='rxvt'
 
 #==================== Functions =========================#
 
@@ -47,7 +47,7 @@ if [[ -f "$1" ]]; then
         *) echo "Error: failed to extract $1" ;;
     esac
 else
-  echo "Error: $1 is not a valid file for extraction"
+  echo 'Error: $1 is not a valid file for extraction'
 fi
 } 
 
@@ -139,8 +139,9 @@ fi
 
 #==================== Custom aliases =========================#
 
-alias ls='ls --color=auto'
-alias letsmine='cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a'
+alias v="vim"
+alias ls="ls --color=auto"
+alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
 alias svim="sudo vim -u /home/afein/.vimrc "
 alias mix="alsamixer"
 alias s="source ~/.zshrc"
