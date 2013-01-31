@@ -1,8 +1,7 @@
 " no vi-compatible
 set nocompatible
 
-
-" Setting up Vundle - the vim plugin bundler
+" Setting up Vundle 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
 if !filereadable(vundle_readme)
@@ -20,14 +19,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required!
 Bundle 'gmarik/vundle'
 
 " Bundles from GitHub repos:
 
 " Python and PHP Debugger
 Bundle 'fisadev/vim-debug.vim'
-" Better file browser
+" Nerdtree file browser
 Bundle 'scrooloose/nerdtree'
 " Code commenter
 Bundle 'scrooloose/nerdcommenter'
@@ -285,5 +283,3 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " to use fancy symbols for powerline, uncomment the following line and use a
 " patched font (more info on the README.rst)
 " let g:Powerline_symbols = 'fancy'
-
-
