@@ -140,11 +140,12 @@ fi
 #==================== Custom aliases =========================#
 
 alias v="vim"
+alias s="source ~/.zshrc"
+alias c="cd"
 alias ls="ls --color=auto"
 alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
 alias svim="sudo vim -u /home/afein/.vimrc "
 alias mix="alsamixer"
-alias s="source ~/.zshrc"
 alias testcam="guvcview"
 
 #   Git 
