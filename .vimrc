@@ -151,7 +151,8 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 imap <C-J> <C-X><C-O>
 
 " show pending tasks list
-map <F2> :w<CR>
+map <F1> :w<CR>
+map <F2> :make<CR>
 
 " removes trailing spaces of python files
 " (and restores cursor position)
@@ -197,6 +198,7 @@ let OmniCpp_MayCompleteScope = 0
 let OmniCpp_SelectFirstItem = 0
 
 " keyboard shortcuts
+
 map <F5> :ConqueTermSplit zsh<CR>
 map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
