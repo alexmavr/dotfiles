@@ -45,19 +45,33 @@ else
 fi
 } 
 
+# Virtualenv management at ~/Envs (same as workon)
+function venv () {
+    if [[ "x$1" == "x" ]]; then
+        echo "Usage: venv <virtualenv folder>"
+    else
+        if [[ -f  "${HOME}/Envs/$1/bin/activate" ]]; then
+            source "${HOME}/Envs/$1/bin/activate"
+        else
+            virtualenv "${HOME}/Envs/$1"
+            source "${HOME}/Envs/$1/bin/activate"
+        fi
+    fi
+}
 #==================== Init Actions ===========================#
 
 hello
 
 #==================== Custom aliases =========================#
 
+# Shortened Aliases
 alias v="vim"
-alias ls='ls --color=auto'
-alias svim="sudo vim -u /home/afein/.vimrc "
-alias mix="alsamixer"
 alias s="source ~/.zshrc"
+alias c="cd"
+alias sv="sudo vim -u /home/afein/.vimrc "
+alias mix="alsamixer"
 
-#   Git 
+#   Git Aliases
 alias ga="git add"
 alias gpl="git pull"
 alias gps="git push"

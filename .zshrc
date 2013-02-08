@@ -99,7 +99,7 @@ function google {
     chromium "http://www.google.com/search?q=$q"
 }
 
-# Search for something on twitter (returns json)
+# Search for something on twitter (returns prettified json)
 function twitter {
    num=5 
    if [ $2 ]; then
@@ -113,7 +113,7 @@ function doskype() {
     xhost +local: && sudo -u skype /usr/bin/skype
 }
 
-# activate/create virtualenvs at ~/Envs
+# Virtualenv management at ~/Envs (same as workon)
 function venv () {
     if [[ "x$1" == "x" ]]; then
         echo "Usage: venv <virtualenv folder>"
@@ -139,16 +139,14 @@ fi
 
 #==================== Custom aliases =========================#
 
+# Shortened Aliases
 alias v="vim"
 alias s="source ~/.zshrc"
 alias c="cd"
-alias ls="ls --color=auto"
-alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
-alias svim="sudo vim -u /home/afein/.vimrc "
+alias sv="sudo vim -u /home/afein/.vimrc "
 alias mix="alsamixer"
-alias testcam="guvcview"
 
-#   Git 
+#   Git Aliases
 alias ga="git add"
 alias gpl="git pull"
 alias gps="git push"
@@ -158,3 +156,6 @@ alias gamt="git commit -am "
 alias gf="git fetch --all"
 alias gm="git merge"
 
+# Ease-of-use Aliases
+alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
+alias testcam="guvcview"
