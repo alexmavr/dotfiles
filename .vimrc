@@ -98,6 +98,7 @@ set colorcolumn=80
 " syntax coloring
 syntax on 
 
+
 " tablength exceptions
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
@@ -111,9 +112,6 @@ set incsearch
 
 " highlighted search results
 set hlsearch
-
-" line numbers
-set nu
 
 " toggle Tagbar display
 map <F4> :TagbarToggle<CR>
@@ -285,3 +283,6 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " to use fancy symbols for powerline, uncomment the following line and use a
 " patched font (more info on the README.rst)
 " let g:Powerline_symbols = 'fancy'
+"
+" relative line numbers
+set rnu
