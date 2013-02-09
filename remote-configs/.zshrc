@@ -7,8 +7,7 @@ source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
-export PATH="$PATH"
-export LD_LIBRARY_PATH="$PATH"
+export PATH="$PATH" export LD_LIBRARY_PATH="$PATH"
 export TERM="rxvt"
 
 #==================== Awesome Functions =========================#
@@ -68,7 +67,7 @@ hello
 alias v="vim"
 alias s="source ~/.zshrc"
 alias c="cd"
-alias sv="sudo vim -u /home/afein/.vimrc "
+alias sv="sudo vim -u ${HOME}/.vimrc "
 alias mix="alsamixer"
 
 #   Git Aliases
