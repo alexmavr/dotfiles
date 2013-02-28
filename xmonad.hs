@@ -122,6 +122,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Chromium
     , ((modm              , xK_c     ), spawn "chromium")
+
+    -- Firefox
+    , ((modm              , xK_f     ), spawn "firefox")
     ]
     ++
 

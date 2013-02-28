@@ -145,8 +145,9 @@ alias s="source ~/.zshrc"
 alias c="cd"
 alias sv="sudo vim -u ${HOME}/.vimrc "
 alias mix="alsamixer"
+alias Syu="sudo pacmatic -Syu"
 
-#   Git Aliases
+# Git Aliases
 alias ga="git add"
 alias gpl="git pull"
 alias gps="git push"
@@ -156,7 +157,7 @@ alias gamt="git commit -am "
 alias gf="git fetch --all"
 alias gm="git merge"
 
-# Ease-of-use Aliases
+# Easily Rememberable Aliases
 alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
 alias testcam="guvcview"
 
