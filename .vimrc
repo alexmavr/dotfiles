@@ -39,7 +39,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'nvie/vim-flake8'
 " Zen coding
 Bundle 'mattn/zencoding-vim'
-" Git integration
+" Git integration  -- aliased
 Bundle 'motemen/git-vim'
 " Tab list panel
 Bundle 'kien/tabman.vim'
@@ -98,7 +98,6 @@ set colorcolumn=80
 " syntax coloring
 syntax on 
 
-
 " tablength exceptions
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
@@ -118,8 +117,6 @@ map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
 let g:tagbar_autofocus = 1
 
-" NERDTree (better file browser) toggle
-map <F3> :NERDTreeToggle<CR>
 
 " tab navigation
 map tn :tabn<CR>
@@ -148,9 +145,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 " old autocomplete keyboard shortcut
 imap <C-J> <C-X><C-O>
 
-" show pending tasks list
-map <F1> :w<CR>
-map <F2> :make<CR>
 
 " removes trailing spaces of python files
 " (and restores cursor position)
@@ -197,14 +191,18 @@ let OmniCpp_SelectFirstItem = 0
 
 " keyboard shortcuts
 
+map <F1> :w<CR>
+map <F2> :make<CR>
+map <F3> :NERDTreeToggle<CR>
+
 map <F5> :ConqueTermSplit zsh<CR>
 map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
 map <F8> :Dbg here<CR>
 map <F9> :Dbg break<CR>
 map <F10> :Dbg watch<CR>
-map <F11> :Dbg down<CR>
-map <F12> :Dbg up<CR>
+
+map <F11> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = ',e'
@@ -284,5 +282,22 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " patched font (more info on the README.rst)
 " let g:Powerline_symbols = 'fancy'
 "
+
+
+""" Custom Additions """
+
 " relative line numbers
 set rnu
+
+" Command Aliases
+"
+":W = :w
+cnoreabbrev W w 
+
+"Git
+cmap ga GitAdd 
+cmap gmt GitCommit 
+cmap gst GitStatus 
+cmap gco GitCheckout 
+cmap gpl GitPull 
+cmap gps GitPush 
