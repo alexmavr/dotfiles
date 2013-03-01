@@ -36,7 +36,7 @@ Bundle 'majutsushi/tagbar'
 " Code and files fuzzy finder
 Bundle 'kien/ctrlp.vim'
 " PEP8 and python-flakes checker
-Bundle 'nvie/vim-flake8'
+" Bundle 'nvie/vim-flake8'
 " Zen coding
 Bundle 'mattn/zencoding-vim'
 " Git integration  -- aliased
@@ -44,7 +44,7 @@ Bundle 'motemen/git-vim'
 " Tab list panel
 Bundle 'kien/tabman.vim'
 " Powerline
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 " Terminal Vim with 256 colors colorscheme
 Bundle 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
@@ -112,8 +112,6 @@ set incsearch
 " highlighted search results
 set hlsearch
 
-" toggle Tagbar display
-map <F4> :TagbarToggle<CR>
 " autofocus on Tagbar open
 let g:tagbar_autofocus = 1
 
@@ -194,7 +192,7 @@ let OmniCpp_SelectFirstItem = 0
 map <F1> :w<CR>
 map <F2> :make<CR>
 map <F3> :NERDTreeToggle<CR>
-
+map <F4> :TagbarToggle<CR>
 map <F5> :ConqueTermSplit zsh<CR>
 map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
@@ -202,6 +200,7 @@ map <F8> :Dbg here<CR>
 map <F9> :Dbg break<CR>
 map <F10> :Dbg watch<CR>
 
+" create taglist
 map <F11> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " CtrlP (new fuzzy finder)
@@ -224,6 +223,7 @@ nmap ,D ,wG
 nmap ,we :call CtrlPWithSearchText(expand('<cword>'), '')<CR>
 nmap ,pe :call CtrlPWithSearchText(expand('<cfile>'), '')<CR>
 nmap ,wm :call CtrlPWithSearchText(expand('<cword>'), 'MRUFiles')<CR>
+
 " Don't change working directory
 let g:ctrlp_working_path_mode = 0
 " Ignore files on fuzzy finder
@@ -231,7 +231,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn)$',
   \ 'file': '\.pyc$\|\.pyo$',
   \ }
-
 
 " simple recursive grep
 command! -nargs=1 RecurGrep lvimgrep /<args>/gj ./**/*.* | lopen | set nowrap
@@ -281,10 +280,9 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " to use fancy symbols for powerline, uncomment the following line and use a
 " patched font (more info on the README.rst)
 " let g:Powerline_symbols = 'fancy'
-"
 
 
-""" Custom Additions """
+""" Custom Additions 
 
 " relative line numbers
 set rnu
