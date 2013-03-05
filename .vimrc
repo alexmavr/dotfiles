@@ -23,6 +23,8 @@ Bundle 'gmarik/vundle'
 
 " Bundles from GitHub repos:
 
+" Show git diff hint on number column 
+Bundle 'airblade/vim-gitgutter'
 " Python and PHP Debugger
 Bundle 'fisadev/vim-debug.vim'
 " Nerdtree file browser
@@ -281,6 +283,8 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " patched font (more info on the README.rst)
 " let g:Powerline_symbols = 'fancy'
 
+" for default background coloring of the SignColumn
+highlight clear SignColumn
 
 """ Custom Additions 
 
@@ -299,3 +303,4 @@ cmap gst GitStatus
 cmap gco GitCheckout 
 cmap gpl GitPull 
 cmap gps GitPush 
+
