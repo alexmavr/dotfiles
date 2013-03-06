@@ -198,7 +198,9 @@ map <F5> :ConqueTermSplit zsh<CR>
 map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
 map <F8> :Dbg here<CR>
-map <F9> :Dbg here<CR>
+
+" Close current session and make a new one
+map <C-M> <ESC>:mksession! ~/.vim/Session.vim<CR>:qa<CR>
 
 map <F11> :ToggleGitGutterLineHighlights<CR>
 map <F12> :ToggleGitGutter<CR>
@@ -300,3 +302,15 @@ cmap gst GitStatus
 cmap gco GitCheckout 
 cmap gpl GitPull 
 cmap gps GitPush 
+
+
+" Session Management
+" 
+
+function! RestoreSession()
+      if argc() == 0 "vim called without arguments
+          execute 'source ~/.vim/Session.vim'
+      end
+endfunction
+
+autocmd VimEnter * call RestoreSession()""
