@@ -119,14 +119,13 @@ let g:tagbar_autofocus = 1
 
 
 " tab navigation
-map tn :tabn<CR>
-map tp :tabp<CR>
-map tm :tabm<CR>
-map tt :tabnew 
-map <C-S-Right> :tabn<CR>
-imap <C-S-Right> <ESC>:tabn<CR>
-map <C-S-Left> :tabp<CR>
-imap <C-S-Left> <ESC>:tabp<CR>
+map <Tab> :tabn<CR>
+map <S-Tab> :tabp<CR>
+map <C-T> :tabnew<CR>
+
+" buffer save-close
+map <C-Z> :w<CR>
+map <C-C> :q<CR>
 
 " navigate windows with meta+arrows
 map <M-Right> <c-w>l
@@ -199,11 +198,13 @@ map <F5> :ConqueTermSplit zsh<CR>
 map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
 map <F8> :Dbg here<CR>
-map <F9> :Dbg break<CR>
-map <F10> :Dbg watch<CR>
+map <F9> :Dbg here<CR>
+
+map <F11> :ToggleGitGutterLineHighlights<CR>
+map <F12> :ToggleGitGutter<CR>
 
 " create taglist
-map <F11> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F10> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = ',e'
@@ -286,13 +287,9 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " for default background coloring of the SignColumn
 highlight clear SignColumn
 
-""" Custom Additions 
-
 " relative line numbers
 set rnu
 
-" Command Aliases
-"
 ":W = :w
 cnoreabbrev W w 
 
@@ -303,4 +300,3 @@ cmap gst GitStatus
 cmap gco GitCheckout 
 cmap gpl GitPull 
 cmap gps GitPush 
-
