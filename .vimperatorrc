@@ -1,2 +1,4 @@
 set fs
 set titlestring=Firefox
+nnoremap j 7j
+nnoremap k 7k
