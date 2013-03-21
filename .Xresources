@@ -47,10 +47,10 @@ URxvt.dynamiColors: on
 uxvt.intensityStyles: false
 
 ! Transparency (done by xcompmgr now)
-URxvt.depth: 32
-URxvt.background: rgba:1111/1111/1111/dddd
+!URxvt.depth: 32
+URxvt.background: rgba:1111/1111/1111/1111
 URxvt.transparent: true
-URxvt.shading: 19
+URxvt.shading: 7
 
 ! No Scrollbar
 URxvt.scrollBar: false

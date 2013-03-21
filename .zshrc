@@ -23,7 +23,7 @@ function hello() {
 
 # Set initial window transparency 
 function init_window() {
-    transset-df 0.9 --id $(xdotool getwindowfocus)
+    transset-df 0.92 --id $(xdotool getwindowfocus)
 }
 
 # Extract archives

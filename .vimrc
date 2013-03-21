@@ -99,6 +99,17 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set colorcolumn=80
+set smarttab
+set shiftround
+set nojoinspaces
+
+set showmatch       "jump to matching brace after 3 seconds
+set matchtime=3
+
+set diffopt+=iwhite
+set ttyfast
+
+let mapleader=","
 
 " syntax coloring
 syntax on 
@@ -113,7 +124,6 @@ set ls=2
 
 " incremental search
 set incsearch
-
 " highlighted search results
 set hlsearch
 
@@ -285,9 +295,8 @@ set wildmode=list:longest
 " Fix to let ESC work as espected with Autoclose plugin
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
-" to use fancy symbols for powerline, uncomment the following line and use a
-" patched font (more info on the README.rst)
-" let g:Powerline_symbols = 'fancy'
+" Fancy symbols for powerline (requires patched font)
+let g:Powerline_symbols = 'fancy' 
 
 " for default background coloring of the SignColumn
 highlight clear SignColumn
@@ -321,6 +330,3 @@ autocmd VimEnter * call RestoreSession()""
 " disable Ex mode
 map Q <Nop>
 
-let g:Powerline_theme="skwp"
-let g:Powerline_colorscheme="skwp"
-let g:Powerline_symbols = 'fancy' 
