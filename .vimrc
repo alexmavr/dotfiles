@@ -320,3 +320,7 @@ autocmd VimEnter * call RestoreSession()""
 
 " disable Ex mode
 map Q <Nop>
+
+let g:Powerline_theme="skwp"
+let g:Powerline_colorscheme="skwp"
+let g:Powerline_symbols = 'fancy' 

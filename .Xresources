@@ -43,21 +43,26 @@ URxvt.colorIT:	#87af5f
 URxvt.colorBD:	#d7d7d7
 URxvt.colorUL:	#87afd7
 
+URxvt.dynamiColors: on
+uxvt.intensityStyles: false
+
 ! Transparency (done by xcompmgr now)
 URxvt.depth: 32
 URxvt.background: rgba:1111/1111/1111/dddd
 URxvt.transparent: true
-URxvt.shading: 17
+URxvt.shading: 19
 
 ! No Scrollbar
 URxvt.scrollBar: false
 
 ! Fonts
-!URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=false:hinting=true
-URxvt.font: xft:Droid Sans Mono for Powerline:size=9:antialias=true:hinting=true
-URxvt.boldFont: xft:Droid Sans Mono for Powerline:bold:size=9:antialias=true:hinting=true
+!URxvt.font: xft:Droid Sans Mono for Powerline:size=9:antialias=true:hinting=false
+!URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10:antialias=true:hinting=true
+!URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=10:antialias=true:hinting=true
+URxvt.font: xft:Inconsolata for Powerline:size=10:antialias=true:hinting=false
+URxvt.boldFont: xft:Inconsolata for Powerline:bold:size=10:antialias=true:hinting=false
 
 ! Urls
 URxvt.perl-ext-common: default,matcher,clipboard
-URxvt.urlLauncher : chromium
+URxvt.urlLauncher : firefox
 URxvt.matcher.button : 1
