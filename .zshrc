@@ -6,7 +6,7 @@ source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin
 
 export BROWSER='spacefm'
 export EDITOR='vim'

@@ -43,4 +43,5 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true --expa
 
 # Start Xmonad
 exec xmonad
+
 #exec openbox

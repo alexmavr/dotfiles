@@ -54,8 +54,8 @@ URxvt.scrollBar: false
 
 ! Fonts
 !URxvt.font: xft:DejaVu Sans Mono:size=10:antialias=false:hinting=true
-URxvt.font: xft:Envy Code R:size=10:antialias=false:hinting=true
-URxvt.boldFont: xft:DejaVu Sans Mono:bold:size=10:antialias=false:hinting=true
+URxvt.font: xft:Droid Sans Mono for Powerline:size=9:antialias=true:hinting=true
+URxvt.boldFont: xft:Droid Sans Mono for Powerline:bold:size=9:antialias=true:hinting=true
 
 ! Urls
 URxvt.perl-ext-common: default,matcher,clipboard

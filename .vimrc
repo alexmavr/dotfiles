@@ -46,7 +46,7 @@ Bundle 'motemen/git-vim'
 " Tab list panel
 Bundle 'kien/tabman.vim'
 " Powerline
-"Bundle 'Lokaltog/vim-powerline'
+Bundle 'Lokaltog/powerline'
 " Terminal Vim with 256 colors colorscheme
 Bundle 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
@@ -89,6 +89,9 @@ endif
 " allow plugins by file type
 filetype plugin on
 filetype indent on
+
+
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " tabs and spaces handling
 set expandtab
@@ -314,3 +317,6 @@ function! RestoreSession()
 endfunction
 
 autocmd VimEnter * call RestoreSession()""
+
+" disable Ex mode
+map Q <Nop>
