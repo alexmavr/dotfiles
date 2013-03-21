@@ -158,6 +158,6 @@ alias gf="git fetch --all"
 alias gm="git merge"
 
 # Easily Rememberable Aliases
-alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_1 --pass a"
+alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_archtop --pass a"
 alias testcam="guvcview"
 
