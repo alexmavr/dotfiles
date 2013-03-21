@@ -33,8 +33,8 @@
 *color14: #46a4ff
 
 ! White + LightGrey
-*color7: #cccccc
-*color15: #ffffff
+*color7: #ffffff
+*color15: #cccccc
 
 ! -----------URxvt Specific --------------
 
