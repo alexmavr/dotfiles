@@ -5,15 +5,16 @@ Config { font = "xft:Terminus:size=9:antialias=True"
        , position = Top
        , lowerOnStart = True
        , commands = [ Run StdinReader 
-		    , Run Weather "LGAV" ["-t","Athens: <tempC>C","-L","18","-H","35","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Weather "LGAV" ["-t","Athens: <tempC>C","-L","18","-H","35","--normal","green","--high","red","--low","lightblue"] 36000
                     , Run Network "wlan0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Cpu ["-L","1","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
+                    , Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
                     , Run Date "%_d %b   %H:%M:%S" "date" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %wlan0% - %eth0%    |    %cpu%    |    %memory% * %swap%                               %LGAV%  |  <fc=#ee9a00>%date%</fc>                   "
+       , template = "%StdinReader% }{ %wlan0% - %eth0%  |  %battery%   |    %cpu%    |    %memory%   %swap%                               %LGAV%  |  <fc=#ee9a00>%date%</fc>                   "
        }
