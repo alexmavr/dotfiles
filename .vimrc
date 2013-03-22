@@ -161,8 +161,6 @@ imap <C-J> <C-X><C-O>
 " (and restores cursor position)
 autocmd BufWritePre *.py mark z | %s/ *$//e | 'z
 
-" save as sudo
-ca w!! w !sudo tee "%"
 
 " colors and settings of autocompletition
 highlight Pmenu ctermbg=4 guibg=LightGray
@@ -200,9 +198,12 @@ let OmniCpp_MayCompleteScope = 0
 " change this behaviour with the OmniCpp_SelectFirstItem option.
 let OmniCpp_SelectFirstItem = 0
 
-" keyboard shortcuts
 
-map <F1> :w<CR>
+" save as sudo
+ca w!! w !sudo tee "%"
+
+" keyboard shortcuts
+nmap <F1> :w<CR>
 map <F2> :make<CR>
 map <F3> :NERDTreeToggle<CR>
 map <F4> :TagbarToggle<CR>
@@ -259,7 +260,7 @@ nmap ,wr :RecurGrepFast <cword><CR>
 
 " run pep8+pyflakes validator
 autocmd FileType python map <buffer> ,8 :call Flake8()<CR>
-" rules to ignore (example: "E501,W293")
+
 let g:flake8_ignore=""
 
 " don't let pyflakes allways override the quickfix list
@@ -272,10 +273,8 @@ let g:tabman_focus  = 'tf'
 " use 256 colors when possible
 if &term =~? 'mlterm\|xterm\|screen-256\|rxvt'
 	let &t_Co = 256
-    " color
     colorscheme fisa
 else
-    " color
     colorscheme delek
 endif
 
@@ -297,8 +296,6 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " Fancy symbols for powerline (requires patched font)
 let g:Powerline_symbols = 'fancy' 
 
-" for default background coloring of the SignColumn
-highlight clear SignColumn
 
 " relative line numbers
 set rnu
@@ -316,8 +313,6 @@ cmap gps GitPush
 
 
 " Session Management
-" 
-
 function! RestoreSession()
       if argc() == 0 "vim called without arguments
           execute 'source ~/.vim/Session.vim'
@@ -326,10 +321,13 @@ endfunction
 
 autocmd VimEnter * call RestoreSession()""
 
+
 " disable Ex mode
 map Q <Nop>
 
-"colorcolumn past 80 chars
-"let &colorcolumn=join(range(81,999),",")
+" Custom universal coloring 
+highlight clear SignColumn
+highlight clear ColorColumn
+highlight clear SpellBad
 highlight ColorColumn ctermbg=233 guibg=None
-
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
