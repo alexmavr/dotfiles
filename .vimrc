@@ -4,12 +4,11 @@ set nocompatible
 " Setting up Vundle 
 let iCanHazVundle=1
 let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
+if !filereadable(vundle_readme) 
+    echo "Installing Vundle..." 
     echo ""
     silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle let iCanHazVundle=0
 endif
 
 " required for vundle
@@ -329,4 +328,8 @@ autocmd VimEnter * call RestoreSession()""
 
 " disable Ex mode
 map Q <Nop>
+
+"colorcolumn past 80 chars
+"let &colorcolumn=join(range(81,999),",")
+highlight ColorColumn ctermbg=233 guibg=None
 
