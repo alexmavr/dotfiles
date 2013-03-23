@@ -139,6 +139,9 @@ fi
 
 #==================== Custom aliases =========================#
 
+# steam locomotive sl
+unalias sl
+
 # Shortened Aliases
 alias v="vim"
 alias s="source ~/.zshrc"
