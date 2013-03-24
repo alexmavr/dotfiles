@@ -1,7 +1,8 @@
 ========================
-My Config Files 
+My Configuration Files 
 ========================
 
+Licenced under the MIT licence: http://afein.mit-licence.org
 Feel free to try them out:
 
 - Xmonad
@@ -10,6 +11,6 @@ Feel free to try them out:
 - Vim
 - Conky
 - Xinit
-- Xresources 
-- Mutt
+- Rxvt-Unicode
+
 
