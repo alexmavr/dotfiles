@@ -7,7 +7,8 @@ source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
-export PATH="$PATH" export LD_LIBRARY_PATH="$PATH"
+export PATH="$PATH" 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
 export TERM="rxvt-unicode"
 
 #==================== Awesome Functions =========================#
