@@ -10,7 +10,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bi
 
 export BROWSER='spacefm'
 export EDITOR='vim'
-export TERM='rxvt'
+export TERM='rxvt-unicode'
 
 #==================== Functions =========================#
 
@@ -139,7 +139,7 @@ fi
 
 #==================== Custom aliases =========================#
 
-# steam locomotive sl
+# sl=steam locomotive
 unalias sl
 
 # Shortened Aliases
@@ -163,4 +163,3 @@ alias gm="git merge"
 # Easily Rememberable Aliases
 alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_archtop --pass a"
 alias testcam="guvcview"
-
