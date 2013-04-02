@@ -7,6 +7,7 @@ source $ZSH/oh-my-zsh.sh
 #=================== Enviromental Variables ==================#
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin
+export PYTHONPATH=/usr/lib/python2.7/site-packages:$PYTHONPATH:/home/afein/Repos/django/
 
 export BROWSER='spacefm'
 export EDITOR='vim'
@@ -129,7 +130,7 @@ function venv () {
 
 #==================== Init Actions ===========================#
 
-init_window > /dev/null 2>&1
+[ "$(ps --no-headers -C X)" ] && init_window > /dev/null 2>&1
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 
 # Show hostname if not in scratchpad
@@ -139,7 +140,7 @@ fi
 
 #==================== Custom aliases =========================#
 
-# sl=steam locomotive
+# steam locomotive sl
 unalias sl
 
 # Shortened Aliases
@@ -163,3 +164,4 @@ alias gm="git merge"
 # Easily Rememberable Aliases
 alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_archtop --pass a"
 alias testcam="guvcview"
+
