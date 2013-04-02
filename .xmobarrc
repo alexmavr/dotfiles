@@ -11,7 +11,7 @@ Config { font = "xft:Terminus:size=9:antialias=True"
                     , Run Cpu ["-L","1","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
-                    , Run Battery ["-t","<left>% / <timeleft>","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
+                    , Run Battery ["-t","Bat: <left>%","-L","50","-H","75","-h","green","-n","yell","-l","red"] 10
                     , Run Date "%_d %b   %H:%M:%S" "date" 10
                     ]
        , sepChar = "%"
