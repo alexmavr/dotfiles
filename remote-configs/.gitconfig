@@ -12,3 +12,5 @@
     ui = true                                                             
 [format]                                                                 
     pretty = full   
+[diff]
+	algorithm = patience

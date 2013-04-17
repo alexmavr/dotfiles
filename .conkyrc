@@ -38,7 +38,7 @@ net_avg_samples 2
 out_to_console no
 stippled_borders 2
 uppercase no
-use_spacer yes
+use_spacer true
 lua_load ~/.conky/draw_bg.lua
 lua_draw_hook_pre draw_bg
 if_up_strictness address 

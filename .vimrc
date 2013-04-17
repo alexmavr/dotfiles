@@ -38,7 +38,7 @@ Bundle 'majutsushi/tagbar'
 " Code and files fuzzy finder
 Bundle 'kien/ctrlp.vim'
 " PEP8 and python-flakes checker
-" Bundle 'nvie/vim-flake8'
+ Bundle 'nvie/vim-flake8'
 " Zen coding
 Bundle 'mattn/zencoding-vim'
 " Git integration  -- aliased

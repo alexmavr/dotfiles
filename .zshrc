@@ -6,8 +6,8 @@ source $ZSH/oh-my-zsh.sh
 
 #=================== Enviromental Variables ==================#
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin
-export PYTHONPATH=/usr/lib/python2.7/site-packages:$PYTHONPATH:/home/afein/Repos/django/
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin:/home/afein/bin
+export PYTHONPATH=/home/afein/Repos/django:/usr/lib/python2.7/site-packages:$PYTHONPATH
 
 export BROWSER='spacefm'
 export EDITOR='vim'
@@ -162,6 +162,5 @@ alias gf="git fetch --all"
 alias gm="git merge"
 
 # Easily Rememberable Aliases
-alias letsmine="cgminer --url http://btcguild.com:8332/ --user nalfemp_archtop --pass a"
+alias letsmine="cgminer --url http://eu-stratum.btcguild.com:3333/ --user nalfemp_archtop --pass a"
 alias testcam="guvcview"
-
