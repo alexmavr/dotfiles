@@ -21,8 +21,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Bundles from GitHub repos:
-
+""""" Bundles from GitHub
 " Show git diff hint on number column 
 Bundle 'airblade/vim-gitgutter'
 " Python and PHP Debugger
@@ -40,7 +39,7 @@ Bundle 'kien/ctrlp.vim'
 " PEP8 and python-flakes checker
  Bundle 'nvie/vim-flake8'
 " Zen coding
-Bundle 'mattn/zencoding-vim'
+" Bundle 'mattn/zencoding-vim'
 " Git integration  -- aliased
 Bundle 'motemen/git-vim'
 " Tab list panel
@@ -50,7 +49,7 @@ Bundle 'Lokaltog/powerline'
 " Terminal Vim with 256 colors colorscheme
 Bundle 'fisadev/fisa-vim-colorscheme'
 " Consoles as buffers
-Bundle 'rosenfeld/conque-term'
+" Bundle 'rosenfeld/conque-term'
 " Pending tasks list
 Bundle 'fisadev/FixedTaskList.vim'
 " Surround
@@ -89,7 +88,6 @@ endif
 " allow plugins by file type
 filetype plugin on
 filetype indent on
-
 
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
@@ -322,6 +320,13 @@ endfunction
 
 autocmd VimEnter * call RestoreSession()""
 
+" Split options
+set splitbelow
+set splitright
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-K> <C-W><C-K>
 
 " disable Ex mode
 map Q <Nop>
