@@ -7,7 +7,8 @@ source $ZSH/oh-my-zsh.sh
 #=================== Enviromental Variables ==================#
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin:/home/afein/bin
-export PYTHONPATH=/home/afein/Repos/django:/usr/lib/python2.7/site-packages:$PYTHONPATH
+#export PYTHONPATH=/home/afein/Repos/django:/usr/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=/usr/lib/python2.7/site-packages:$PYTHONPATH
 
 export BROWSER='spacefm'
 export EDITOR='vim'
@@ -130,7 +131,10 @@ function venv () {
 
 #==================== Init Actions ===========================#
 
+# if X has started, make the shell's windows transparent
 [ "$(ps --no-headers -C X)" ] && init_window > /dev/null 2>&1
+
+# ssh keychain session
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
 
 # Show hostname if not in scratchpad
