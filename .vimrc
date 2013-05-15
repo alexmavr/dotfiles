@@ -211,14 +211,15 @@ map <F6> :ConqueTermVSplit zsh<CR>
 map <F7> :Dbg out<CR>
 map <F8> :Dbg here<CR>
 
-" Close current session and make a new one
-map <C-M> <ESC>:mksession! ~/.vim/Session.vim<CR>:qa<CR>
-
-map <F11> :ToggleGitGutterLineHighlights<CR>
-map <F12> :ToggleGitGutter<CR>
 
 " create taglist
 map <F10> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F11> :ToggleGitGutterLineHighlights<CR>
+map <F12> :ToggleGitGutter<CR>
+
+
+" Close current session and make a new one
+map <C-M> <ESC>:mksession! ~/.vim/Session.vim<CR>:qa<CR>
 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = ',e'
@@ -231,6 +232,7 @@ function! CtrlPWithSearchText(search_text, ctrlp_command_end)
     execute ':CtrlP' . a:ctrlp_command_end
     call feedkeys(a:search_text)
 endfunction
+
 " CtrlP with default text
 nmap ,wg :call CtrlPWithSearchText(expand('<cword>'), 'BufTag')<CR>
 nmap ,wG :call CtrlPWithSearchText(expand('<cword>'), 'BufTagAll')<CR>
@@ -294,7 +296,6 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 " Fancy symbols for powerline (requires patched font)
 let g:Powerline_symbols = 'fancy' 
-
 
 " relative line numbers
 set rnu

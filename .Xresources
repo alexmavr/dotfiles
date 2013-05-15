@@ -1,8 +1,8 @@
 !   terminal colors
 
 ! tangoesque scheme
-*background: #111111
-*foreground: #babdb6
+!*background: #000000
+*foreground: #dddddd
 
 ! Black + DarkGrey
 *color0: #000000
@@ -38,31 +38,38 @@
 
 ! -----------URxvt Specific --------------
 
+URxvt.perl-ext-common: default,matcher,clipboard,font-size
+
+URxvt.cursorColor: #666666
+URxvt.cursorBlink: true
+
 ! Colored Man Pages
 URxvt.colorIT:	#87af5f
 URxvt.colorBD:	#d7d7d7
 URxvt.colorUL:	#87afd7
 
-URxvt.dynamiColors: on
-uxvt.intensityStyles: false
+URxvt.dynamicColors: on
+URxvt.intensityStyles: false
 
 ! Transparency (done by xcompmgr now)
 !URxvt.depth: 32
 URxvt.background: rgba:1111/1111/1111/1111
 URxvt.transparent: true
-URxvt.shading: 7
+URxvt.shading: 4
 
 ! No Scrollbar
 URxvt.scrollBar: false
 
 ! Fonts
-!URxvt.font: xft:Droid Sans Mono for Powerline:size=9:antialias=true:hinting=false
 !URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10:antialias=true:hinting=true
 !URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=10:antialias=true:hinting=true
 URxvt.font: xft:Inconsolata for Powerline:size=10:antialias=true:hinting=false
 URxvt.boldFont: xft:Inconsolata for Powerline:bold:size=10:antialias=true:hinting=false
 
 ! Urls
-URxvt.perl-ext-common: default,matcher,clipboard
 URxvt.urlLauncher : firefox
 URxvt.matcher.button : 1
+
+! Keybinds
+URxvt.keysym.C-Up:     perl:font-size:increase
+URxvt.keysym.C-Down:   perl:font-size:decrease
