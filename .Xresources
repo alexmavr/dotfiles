@@ -42,6 +42,7 @@ URxvt.perl-ext-common: default,matcher,clipboard,font-size
 
 URxvt.cursorColor: #666666
 URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
 
 ! Colored Man Pages
 URxvt.colorIT:	#87af5f
@@ -61,8 +62,6 @@ URxvt.shading: 4
 URxvt.scrollBar: false
 
 ! Fonts
-!URxvt.font: xft:DejaVu Sans Mono for Powerline:size=10:antialias=true:hinting=true
-!URxvt.boldFont: xft:DejaVu Sans Mono for Powerline:bold:size=10:antialias=true:hinting=true
 URxvt.font: xft:Inconsolata for Powerline:size=10:antialias=true:hinting=false
 URxvt.boldFont: xft:Inconsolata for Powerline:bold:size=10:antialias=true:hinting=false
 

@@ -303,14 +303,6 @@ set rnu
 ":W = :w
 cnoreabbrev W w 
 
-"Git
-cmap ga GitAdd 
-cmap gmt GitCommit 
-cmap gst GitStatus 
-cmap gco GitCheckout 
-cmap gpl GitPull 
-cmap gps GitPush 
-
 
 " Session Management
 function! RestoreSession()
