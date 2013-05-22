@@ -1,7 +1,7 @@
 !   terminal colors
 
 ! tangoesque scheme
-!*background: #000000
+!*background: black
 *foreground: #dddddd
 
 ! Black + DarkGrey
@@ -42,19 +42,18 @@ URxvt.perl-ext-common: default,matcher,clipboard,font-size
 
 URxvt.cursorColor: #666666
 URxvt.cursorBlink: true
-URxvt.cursorUnderline: true
 
 ! Colored Man Pages
 URxvt.colorIT:	#87af5f
 URxvt.colorBD:	#d7d7d7
 URxvt.colorUL:	#87afd7
 
-URxvt.dynamicColors: on
+URxvt.dynamicColors: true
 URxvt.intensityStyles: false
 
 ! Transparency (done by xcompmgr now)
 !URxvt.depth: 32
-URxvt.background: rgba:1111/1111/1111/1111
+URxvt.background: black
 URxvt.transparent: true
 URxvt.shading: 4
 
