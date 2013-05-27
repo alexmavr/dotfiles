@@ -154,6 +154,7 @@ alias c="cd"
 alias sv="sudo vim -u ${HOME}/.vimrc "
 alias mix="alsamixer"
 alias Syu="sudo pacmatic -Syu"
+alias die="sudo shutdown -h now"
 
 # Git Aliases
 alias ga="git add"
