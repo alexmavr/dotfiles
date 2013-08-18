@@ -23,7 +23,7 @@ function hello() {
     echo -en '\e[0m' 
 }
 
-# Set initial window transparency 
+# initial window transparency 
 function init_window() {
     transset-df 0.94 --id $(xdotool getwindowfocus)
 }
@@ -85,23 +85,7 @@ else
 fi
 }
 
-# Google something
-function google {
-    q=""
-    i=0
-    for var in "$@"
-    do
-        if [ "$i" -eq "0" ]; then
-            q+=$var
-        else
-            q+="+"$var
-        fi
-        i+=1
-    done
-    chromium "http://www.google.com/search?q=$q"
-}
-
-# Search for something on twitter (returns json)
+# twitter search as json
 function twitter {
    num=5 
    if [ $2 ]; then
@@ -115,7 +99,7 @@ function doskype() {
     xhost +local: && sudo -u skype /usr/bin/skype
 }
 
-# activate/create virtualenvs at ~/Envs
+# virtualenv management at ~/Envs
 function venv () {
     if [[ "x$1" == "x" ]]; then
         echo "Usage: venv <virtualenv folder>"
@@ -127,6 +111,25 @@ function venv () {
             source "${HOME}/Envs/$1/bin/activate"
         fi
     fi
+}
+
+export MARKPATH=$HOME/.marks
+
+# Filesystem marks
+function jump { 
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+
+function mark { 
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+
+function unmark { 
+    rm -i $MARKPATH/$1 
+}
+
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
 #==================== Init Actions ===========================#
