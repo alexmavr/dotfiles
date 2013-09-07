@@ -7,6 +7,6 @@ cp ~/.Xresources .
 cp ~/.vimrc .
 cp ~/.vimperatorrc .
 cp ~/.conkyrc .
-cp ~/.mutt . -rf
+cp ~/.tmux.conf .
 cp ~/.gitconfig . 
 cp .gitconfig remote-configs/
