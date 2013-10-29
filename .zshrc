@@ -61,7 +61,7 @@ if [[ -f "$1" ]]; then
         *.jpeg)             feh     "$1" &   ;;
         *.JPG)              feh     "$1" &   ;;
         *.jpg)              feh     "$1" &   ;;
-        *.pdf)              zathura     "$1" &> /dev/null &   ;;
+        *.pdf | *.ps)       zathura     "$1" &> /dev/null &   ;;
         *.odt | *.doc | *.docx)  libreoffice "$1" &> /dev/null &   ;;
         *.avi)              mplayer     "$1"    ;;
         *)                  vim "$1"            ;;
