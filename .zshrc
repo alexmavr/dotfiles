@@ -10,6 +10,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bi
 #export PYTHONPATH=/home/afein/Repos/django:/usr/lib/python2.7/site-packages:$PYTHONPATH
 export PYTHONPATH=/usr/lib/python2.7/site-packages:$PYTHONPATH
 
+export GOPATH=/home/afein/gopath/
+
 export BROWSER='spacefm'
 export EDITOR='vim'
 export TERM='rxvt-unicode'
@@ -25,7 +27,7 @@ function hello() {
 
 # initial window transparency 
 function init_window() {
-    transset-df 0.94 --id $(xdotool getwindowfocus)
+    transset-df 0.91 --id $(xdotool getwindowfocus)
 }
 
 # Extract archives
@@ -64,6 +66,8 @@ if [[ -f "$1" ]]; then
         *.pdf | *.ps)       zathura     "$1" &> /dev/null &   ;;
         *.odt | *.doc | *.docx)  libreoffice "$1" &> /dev/null &   ;;
         *.avi)              mplayer     "$1"    ;;
+        *.wav)              mplayer     "$1"    ;;
+        *.mp3)              mplayer     "$1"    ;;
         *)                  vim "$1"            ;;
     esac
 else
@@ -132,10 +136,15 @@ function marks {
     ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+function todec() {
+    echo "$(( $1#$2 ))"
+}
+
 #==================== Init Actions ===========================#
 
+# :: XMonad specific ::
 # if X has started, make the shell's windows transparent
-[ "$(ps --no-headers -C X)" ] && init_window > /dev/null 2>&1
+init_window > /dev/null 2>&1
 
 # ssh keychain session
 eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
@@ -147,9 +156,6 @@ fi
 
 #==================== Custom aliases =========================#
 
-# steam locomotive sl
-unalias sl
-
 # Shortened Aliases
 alias v="vim"
 alias s="source ~/.zshrc"
@@ -158,6 +164,7 @@ alias sv="sudo vim -u ${HOME}/.vimrc "
 alias mix="alsamixer"
 alias Syu="sudo pacmatic -Syu"
 alias die="sudo shutdown -h now"
+alias tm="tmux -2"
 
 # Git Aliases
 alias ga="git add"
@@ -172,3 +179,12 @@ alias gm="git merge"
 # Easily Rememberable Aliases
 alias letsmine="cgminer --url http://eu-stratum.btcguild.com:3333/ --user nalfemp_archtop --pass a"
 alias testcam="guvcview"
+
+alias ghc52="ssh amavrogi@ghc52.ghc.andrew.cmu.edu"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/home/afein/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables zsh completion for gcloud.
+source '/home/afein/google-cloud-sdk/completion.zsh.inc'
