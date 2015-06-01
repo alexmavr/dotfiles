@@ -18,14 +18,6 @@ if !filereadable(neobundle_readme)
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
   let g:not_finsh_neobundle = "yes"
 
-  " Run shell script if exist on custom select language
-  
-  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/python/python.sh | bash -s stable
-  
-  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/go/go.sh | bash -s stable
-  
-  silent !\curl -sSL https://raw.githubusercontent.com/avelino/vim-bootstrap/master/vim_template/langs/c/c.sh | bash -s stable
-  
 endif
 
 " Required:
@@ -39,27 +31,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "" NeoBundle install packages
 "*****************************************************************************
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-commentary'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'vim-scripts/grep.vim'
 NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-if v:version > 702
-	NeoBundle 'Shougo/vimshell.vim'
-endif
 
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
@@ -70,11 +46,9 @@ NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 
 "" Color
-"NeoBundle 'tomasr/molokai'
 NeoBundle 'fisadev/fisa-vim-colorscheme'
 
 "" Vim-Bootstrap Updater
-NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 let g:vim_bootstrap_langs = "python,c,go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
@@ -83,7 +57,7 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
-NeoBundle "scrooloose/syntastic"
+"NeoBundle "scrooloose/syntastic"
 NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
 
@@ -91,11 +65,9 @@ NeoBundle "Yggdroot/indentLine"
 "" Go Lang Bundle
 NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
-NeoBundle "Blackrush/vim-gocode"
+"NeoBundle "Blackrush/vim-gocode"
 NeoBundle "jstemmer/gotags"
 
-"" custom: neocompletion
-"NeoBundle "Shougo/neocomplete.vim"
 NeoBundle "valloric/youcompleteMe.git"
 
 
@@ -139,7 +111,6 @@ set smarttab
 map <Tab> :tabn<CR>
 map <S-Tab> :tabp<CR>
 map <C-T> :tabnew<CR>
-
 
 "" Map leader to ,
 let mapleader=','
@@ -375,20 +346,9 @@ noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 "" Opens a tab edit command with the path of the currently edited file filled
 noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
-"" ctrlp.vim
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tox)$'
-let g:ctrlp_user_command = "find %s -type f | grep -Ev '"+ g:ctrlp_custom_ignore +"'"
-let g:ctrlp_use_caching = 0
-cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
-noremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>e'
-let g:ctrlp_open_new_file = 'r'
-
 " snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-s>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
 
@@ -397,19 +357,19 @@ let g:UltiSnipsEditSplit="vertical"
 "set statusline+=%{SyntasticStatuslineFlag()}
 "set statusline+=%*
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list=1
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_error_symbol='✗'
+" let g:syntastic_warning_symbol='⚠'
+" let g:syntastic_style_error_symbol = '✗'
+" let g:syntastic_style_warning_symbol = '⚠'
+" let g:syntastic_auto_loc_list=1
+" let g:syntastic_aggregate_errors = 1
 
-let g:syntastic_python_python_exec = '/usr/bin/python2'
-let g:syntastic_python_checkers=['python2', 'flake8']
-let g:syntastic_python_flake8_post_args='--ignore=W391,H233,H306'
+" let g:syntastic_python_python_exec = '/usr/bin/python2'
+" let g:syntastic_python_checkers=['python2', 'flake8']
+" let g:syntastic_python_flake8_post_args='--ignore=W391,H233,H306'
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -419,12 +379,6 @@ endif
 noremap YY "+y<CR>
 noremap P "+gP<CR>
 noremap XX "+x<CR>
-
-if has('macunix')
-  " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
-endif
 
 "" Buffer nav
 noremap <leader>z :bp<CR>
@@ -441,11 +395,6 @@ nnoremap <silent> <leader><space> :noh<cr>
 "" Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
-
-"" Open current line on GitHub
-noremap ,o :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
-
-"" Custom configs
 
 " vim-python
 augroup vimrc-python
@@ -494,40 +443,6 @@ let g:tagbar_autofocus = 1
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-" " Disable AutoComplPop.
-" let g:acp_enableAtStartup = 0
-" " Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-"
-"" " Plugin key-mappings.
-"" inoremap <expr><C-g>     neocomplete#undo_completion()
-"" inoremap <expr><C-l>     neocomplete#complete_common_string()
-""
-"" " Recommended key-mappings.
-" " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"     return neocomplete#close_popup() . "\<CR>"
-" endfunction
-"
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"
-" if !exists('g:neocomplete#force_omni_input_patterns')
-"	 let g:neocomplete#force_omni_input_patterns = {}
-" endif
-" let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
-"
-" " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><C-y>  neocomplete#close_popup()
-" inoremap <expr><C-e>  neocomplete#cancel_popup()
 
  " Go related mappings
  au FileType go nmap <Leader>i <Plug>(go-info)
