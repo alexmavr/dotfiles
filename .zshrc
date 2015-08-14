@@ -1,34 +1,30 @@
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME='gentoo'
-plugins=(git django vi-mode python pip archlinux github)
+plugins=(git github)
 source $ZSH/oh-my-zsh.sh
+
+# vi mode
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+bindkey '^?' backward-delete-char
+
+export KEYTIMEOUT=1
 
 #=================== Enviromental Variables ==================#
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl:/home/afein/Repos/pazcal/bin:/home/afein/bin
-#export PYTHONPATH=/home/afein/Repos/django:/usr/lib/python2.7/site-packages:$PYTHONPATH
-export PYTHONPATH=/usr/lib/python2.7/site-packages:$PYTHONPATH
+export GOPATH=$HOME/gopath2/
+export PATH=$PATH:$HOME/etcd-v2.0.0-linux-amd64:$GOPATH/src/github.com/GoogleCloudPlatform/kubernetes/cluster:$GOPATH/bin
 
-export GOPATH=/home/afein/gopath/
-
-export BROWSER='spacefm'
 export EDITOR='vim'
-export TERM='rxvt-unicode'
+export TERM='xterm'
 
 #==================== Functions =========================#
-
-# Pretty-print the hostname
-function hello() {
-    echo -en '\e[0;35m' # Orange-like
-	figlet $(hostname) 
-    echo -en '\e[0m' 
-}
-
-# initial window transparency 
-function init_window() {
-    transset-df 0.91 --id $(xdotool getwindowfocus)
-}
 
 # Extract archives
 function extract () {
@@ -88,35 +84,6 @@ else
   echo "Error: $1 could not play file"
 fi
 }
-
-# twitter search as json
-function twitter {
-   num=5 
-   if [ $2 ]; then
-       num=$2
-   fi 
-   curl "http://search.twitter.com/search.json?q=$1&rpp=$num&include_entities=true" | jq "[.results[] | {from_user_name, text}]"
-}
-
-# Run skype as a restricted user
-function doskype() {
-    xhost +local: && sudo -u skype /usr/bin/skype
-}
-
-# virtualenv management at ~/Envs
-function venv () {
-    if [[ "x$1" == "x" ]]; then
-        echo "Usage: venv <virtualenv folder>"
-    else
-        if [[ -f  "${HOME}/Envs/$1/bin/activate" ]]; then
-            source "${HOME}/Envs/$1/bin/activate"
-        else
-            virtualenv "${HOME}/Envs/$1"
-            source "${HOME}/Envs/$1/bin/activate"
-        fi
-    fi
-}
-
 export MARKPATH=$HOME/.marks
 
 # Filesystem marks
@@ -140,20 +107,6 @@ function todec() {
     echo "$(( $1#$2 ))"
 }
 
-#==================== Init Actions ===========================#
-
-# :: XMonad specific ::
-# if X has started, make the shell's windows transparent
-init_window > /dev/null 2>&1
-
-# ssh keychain session
-eval $(keychain -q --eval --agents ssh -Q ~/.ssh/id_rsa)
-
-# Show hostname if not in scratchpad
-if [[ -z $SCRATCH ]]; then
-    hello
-fi
-
 #==================== Custom aliases =========================#
 
 # Shortened Aliases
@@ -161,8 +114,6 @@ alias v="vim"
 alias s="source ~/.zshrc"
 alias c="cd"
 alias sv="sudo vim -u ${HOME}/.vimrc "
-alias mix="alsamixer"
-alias Syu="sudo pacmatic -Syu"
 alias die="sudo shutdown -h now"
 alias tm="tmux -2"
 
@@ -175,16 +126,3 @@ alias grst="git reset --hard HEAD"
 alias gamt="git commit -am "
 alias gf="git fetch --all"
 alias gm="git merge"
-
-# Easily Rememberable Aliases
-alias letsmine="cgminer --url http://eu-stratum.btcguild.com:3333/ --user nalfemp_archtop --pass a"
-alias testcam="guvcview"
-
-alias ghc52="ssh amavrogi@ghc52.ghc.andrew.cmu.edu"
-
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/afein/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables zsh completion for gcloud.
-source '/home/afein/google-cloud-sdk/completion.zsh.inc'

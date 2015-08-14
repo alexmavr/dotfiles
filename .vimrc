@@ -1,13 +1,9 @@
+set nocompatible               
 "*****************************************************************************
 "" NeoBundle core
 "*****************************************************************************
 
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+set runtimepath+=~/.vim/bundle/neobundle.vim/
 
 let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
