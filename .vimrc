@@ -29,6 +29,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/CSApprox'
@@ -107,6 +108,8 @@ set smarttab
 map <Tab> :tabn<CR>
 map <S-Tab> :tabp<CR>
 map <C-T> :tabnew<CR>
+
+
 
 "" Map leader to ,
 let mapleader=','
@@ -200,7 +203,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'hybridline'
 "let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -447,3 +450,15 @@ endif
  au FileType go nmap <Leader>b <Plug>(go-build)
  au FileType go nmap <Leader>t <Plug>(go-test)
  au FileType go nmap gd <Plug>(go-def-tab)
+
+ " markdown has 80 chars textwidth
+ au BufRead,BufNewFile *.md setlocal textwidth=80
+
+ let g:go_fmt_command = "goimports"
+ let g:go_highlight_functions = 1
+ let g:go_highlight_methods = 1
+ let g:go_highlight_fields = 1
+ let g:go_highlight_structs = 1
+ let g:go_highlight_interfaces = 1
+ let g:go_highlight_operators = 1
+ let g:go_highlight_build_constraints = 1
