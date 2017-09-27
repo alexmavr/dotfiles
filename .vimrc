@@ -13,7 +13,6 @@ if !filereadable(neobundle_readme)
   silent !mkdir -p ~/.vim/bundle
   silent !git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
   let g:not_finsh_neobundle = "yes"
-
 endif
 
 " Required:
@@ -33,6 +32,8 @@ NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'sheerun/vim-polyglot'
 NeoBundle 'vim-scripts/CSApprox'
+
+NeoBundle 'nsf/gocode'
 
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
@@ -55,21 +56,19 @@ let g:vim_bootstrap_editor = "vim"				" nvim or vim
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
 "NeoBundle "scrooloose/syntastic"
-NeoBundle "majutsushi/tagbar"
+"NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
 
 
 "" Go Lang Bundle
-NeoBundle "majutsushi/tagbar"
+"NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
-"NeoBundle "Blackrush/vim-gocode"
-NeoBundle "jstemmer/gotags"
-
-NeoBundle "valloric/youcompleteMe.git"
-
+"NeoBundle "jstemmer/gotags"
 
 NeoBundle 'vim-scripts/c.vim'
 
+"" Autocompletion
+NeoBundle 'Shougo/neocomplete.vim/'
 
 
 "" Include user's extra bundle
@@ -103,12 +102,6 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 set smarttab
-
-"" custom tab navigation bindings
-map <Tab> :tabn<CR>
-map <S-Tab> :tabp<CR>
-map <C-T> :tabnew<CR>
-
 
 
 "" Map leader to ,
@@ -313,6 +306,9 @@ augroup END
 
 set autoread
 
+autocmd FileType go nmap <Leader>d :split +GoDef<CR>
+autocmd FileType go nmap <Leader>g :vsplit +GoDef<CR>
+
 "*****************************************************************************
 "" Mappings
 "*****************************************************************************
@@ -350,25 +346,6 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 let g:UltiSnipsJumpForwardTrigger="<c-s>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:UltiSnipsEditSplit="vertical"
-
-" syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_error_symbol='✗'
-" let g:syntastic_warning_symbol='⚠'
-" let g:syntastic_style_error_symbol = '✗'
-" let g:syntastic_style_warning_symbol = '⚠'
-" let g:syntastic_auto_loc_list=1
-" let g:syntastic_aggregate_errors = 1
-
-" let g:syntastic_python_python_exec = '/usr/bin/python2'
-" let g:syntastic_python_checkers=['python2', 'flake8']
-" let g:syntastic_python_flake8_post_args='--ignore=W391,H233,H306'
 
 "" Copy/Paste/Cut
 if has('unnamedplus')
@@ -415,28 +392,7 @@ let g:jedi#completions_command = "<C-Space>"
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [  'p:package', 'i:imports:1', 'c:constants', 'v:variables',
-        \ 't:types',  'n:interfaces', 'w:fields', 'e:embedded', 'm:methods',
-        \ 'r:constructor', 'f:functions' ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : { 't' : 'ctype', 'n' : 'ntype' },
-    \ 'scope2kind' : { 'ctype' : 't', 'ntype' : 'n' },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-    \ }
-
-
-" Tagbar
-nmap <silent> <F4> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+"let g:airline#extensions#tagbar#enabled = 1
 
 "" Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
@@ -462,3 +418,25 @@ endif
  let g:go_highlight_interfaces = 1
  let g:go_highlight_operators = 1
  let g:go_highlight_build_constraints = 1
+
+" Enable neocomplete
+ let g:neocomplete#enable_at_startup = 1
+" Disable AutoComplPop.
+ let g:acp_enableAtStartup = 0
+" Use smartcase.
+ let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+ let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+"" custom tab navigation bindings
+map <Tab> :tabn<CR>
+map <S-Tab> :tabp<CR>
+map <C-T> :tabnew<CR>
+
+let g:go_def_mapping_enabled = 0
+"" Override godef bindings:
+nnoremap <buffer> <silent> gd :GoDef<cr>
+nnoremap <buffer> <silent> <C-]> :GoDef<cr>
+nnoremap <buffer> <silent> <C-w><C-]> :<C-u>call go#def#Jump("split")<CR>
+nnoremap <buffer> <silent> <C-w>] :<C-u>call go#def#Jump("split")<CR>
+nnoremap <buffer> <silent> <C-p> :<C-U>call go#def#StackPop(v:count1)<cr>
