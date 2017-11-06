@@ -30,8 +30,12 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'vim-scripts/CSApprox'
+"NeoBundle 'sheerun/vim-polyglot'
+"eoBundle 'vim-scripts/CSApprox'
+"
+"" Fuzzy completion
+NeoBundle 'junegunn/fzf.vim'
+set rtp+=~/.fzf
 
 NeoBundle 'nsf/gocode'
 
@@ -46,19 +50,17 @@ NeoBundle 'honza/vim-snippets'
 "" Color
 NeoBundle 'fisadev/fisa-vim-colorscheme'
 
+
 "" Vim-Bootstrap Updater
 
 let g:vim_bootstrap_langs = "python,c,go"
 let g:vim_bootstrap_editor = "vim"				" nvim or vim
-
-"" Custom bundles
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"
 "NeoBundle "scrooloose/syntastic"
 "NeoBundle "majutsushi/tagbar"
 NeoBundle "Yggdroot/indentLine"
-
 
 "" Go Lang Bundle
 "NeoBundle "majutsushi/tagbar"
@@ -69,7 +71,6 @@ NeoBundle 'vim-scripts/c.vim'
 
 "" Autocompletion
 NeoBundle 'Shougo/neocomplete.vim/'
-
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -226,7 +227,8 @@ endif
 "*****************************************************************************
 "" Abbreviations
 "*****************************************************************************
-"" no one is really happy until you have this shortcuts
+"
+"" no one is really happy until you have these shortcuts
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
 cnoreabbrev Qall! qall!
@@ -249,6 +251,7 @@ let g:NERDTreeWinSize = 20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>
+noremap <F4> :FZF<CR>
 
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
