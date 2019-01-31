@@ -30,14 +30,14 @@ NeoBundle 'tpope/vim-commentary'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
 NeoBundle 'airblade/vim-gitgutter'
-"NeoBundle 'sheerun/vim-polyglot'
+NeoBundle 'sheerun/vim-polyglot'
 "eoBundle 'vim-scripts/CSApprox'
 "
 "" Fuzzy completion
 NeoBundle 'junegunn/fzf.vim'
 set rtp+=~/.fzf
 
-NeoBundle 'nsf/gocode'
+"NeoBundle 'nsf/gocode'
 
 "" Vim-Session
 NeoBundle 'xolox/vim-misc'
@@ -65,12 +65,11 @@ NeoBundle "Yggdroot/indentLine"
 "" Go Lang Bundle
 "NeoBundle "majutsushi/tagbar"
 NeoBundle "fatih/vim-go"
-"NeoBundle "jstemmer/gotags"
 
-NeoBundle 'vim-scripts/c.vim'
+"NeoBundle 'vim-scripts/c.vim'
 
 "" Autocompletion
-NeoBundle 'Shougo/neocomplete.vim/'
+NeoBundle 'Shougo/neocomplete.vim'
 
 "" Include user's extra bundle
 if filereadable(expand("~/.vimrc.local.bundles"))
@@ -422,14 +421,14 @@ endif
  let g:go_highlight_operators = 1
  let g:go_highlight_build_constraints = 1
 
-" Enable neocomplete
- let g:neocomplete#enable_at_startup = 1
-" Disable AutoComplPop.
- let g:acp_enableAtStartup = 0
-" Use smartcase.
- let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
- let g:neocomplete#sources#syntax#min_keyword_length = 3
+"" Enable neocomplete
+" let g:neocomplete#enable_at_startup = 1
+"" Disable AutoComplPop.
+" let g:acp_enableAtStartup = 0
+"" Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 "" custom tab navigation bindings
 map <Tab> :tabn<CR>
